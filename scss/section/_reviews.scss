@@ -1,0 +1,62 @@
+.reviews {
+
+	&__list {
+		height: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		width: 25%;
+		height: 50%;
+		position: relative;
+		overflow: hidden;
+
+		&:hover {
+
+			.reviews__shadow {
+				opacity: 1;
+	    		transform: scale(1);
+			}
+	    }
+	}
+
+	&__photo {
+		@for $i from 1 to 9 {
+		  &_#{$i} {
+		  	background-image: url('../img/reviews/reviews-#{$i}.jpg');
+		  }
+		}
+
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		filter: grayscale(100%);
+		@include pos-cover();
+	}
+
+	&__shadow {
+		background-color: rgba(darken($gray, 20%), .7);
+	    padding: 46px 20px;
+	    transform: scale(.8);
+	    opacity: 0;
+	    @include pos-cover();
+	    @include transitio();
+	}
+
+	&__title {
+		font-family: 'Gagalin';
+		font-size: 14px;
+		color: $white;
+		margin-bottom: 21px;
+		font-weight: 400;
+	}
+
+	&__body {
+		font-size: 14px;
+		line-height: 1.71;
+		color: $white;
+		font-weight: 300;
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,108 @@
+.wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	min-height: 0;
+}
+
+.container {
+	width: rem(960px);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.main {
+	height: 100%;
+	min-height: 650px;
+}
+
+.section {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.31);
+	min-width: 940px;
+	min-height: 650px;
+
+	&__title {
+		font-family: 'Gagalin';
+		font-size: 72px;
+		font-weight: 400;
+		line-height: 1.42;
+		margin: 0;
+
+		&_yellow {
+			color: $yellow;
+		}
+
+		&_white {
+			color: $white;
+		}
+
+		&_black {
+			color: $gray;
+		}
+	}
+}
+
+.points {
+	position: fixed;
+    top: 90px;
+    right: 40px;
+	z-index: 100;
+
+	&__item {
+		margin-bottom: 15px;
+	}
+
+	&__link {
+		display: block;
+		position: relative;
+		@include circle(6px);
+
+		&:after {
+			content: "";
+			@include circle($color: rgba($white, 0));
+			@include pos-center();
+			@include transitio();
+			border: 1px solid #fff;
+		}
+
+		&:hover, &_active {
+
+			&:after {
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+}
+
+.btn {
+	min-width: rem(98px);
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: uppercase;
+	color: $white;
+	border-radius: 5px;
+	line-height: 1.42;
+	padding: 10px 16px;
+	@include transitio(background-color);
+
+	&_orange {
+		background-color: $orange;
+
+		&:hover {
+			background-color: darken($orange, 7%);
+		}
+	}
+	
+	&_gray {
+		background-color: $gray;
+
+		&:hover {
+			background-color: darken($gray, 7%);
+		}
+	}
+}

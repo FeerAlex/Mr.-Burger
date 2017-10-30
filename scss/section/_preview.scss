@@ -1,0 +1,128 @@
+.preview {
+	background-image: url('../img/preview.jpg');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	position: relative;
+
+	&:before {
+		content: "";
+		@include pos-cover();
+		background: rgba(#141414, .31) url('../img/pattern.png');
+	}
+
+	&__container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__intro {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		align-items: center;
+		padding-bottom: 15%;
+	}
+
+	&__burger, &__text {
+		display: flex;
+		flex-basis: 50%;
+	}
+
+	 &__text {
+	 	flex-direction: column;
+	 	justify-content: center;
+	 }
+
+	 &__title {
+	 	padding-top: 60px;
+	 }
+
+	 &__subtitle {
+	 	color: $white;
+	 	font-family: 'Lifehack';
+	 	font-size: 65px;
+	 	font-weight: 500;
+	 	line-height: 1;
+	 }
+
+	 &__arrow {
+	 	position: absolute;
+	 	bottom: 30px;
+	 	@include transitio();
+
+	 	&:hover {
+	 		transform: scale(1.2);
+	 	}
+	 }
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+
+	&__nav {
+		margin-left: auto;
+	}
+
+	&__btn {
+		margin-left: rem(15px);
+	}
+}
+
+.nav {
+
+	&__item {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+
+		&:before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			@include circle(5px);
+			margin: 0 12px;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+	}
+
+	&__link {
+		color: $white;
+		font-size: 13px;
+		font-weight: 500;
+		line-height: 1.42;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: $white;
+			width: 0;
+			height: 1px;
+			@include transitio();
+		}
+
+		&:hover {
+			&:after {
+				width: 100%;
+			}
+		}
+	}
+}

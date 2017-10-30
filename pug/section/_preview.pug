@@ -1,0 +1,23 @@
+section.section.preview#section-1
+    .container.preview__container
+        header.header
+            .header__logo.logo
+                a(href="#").logo__link
+                    img(src="img/logo.svg").logo__img
+            .header__nav.nav
+                - var navs = ['о нас', 'бургеры', 'команда', 'меню', 'отзывы', 'контакты']
+                ul.nav__list
+                    each nav, i in navs
+                        li.nav__item
+                            a(href="#").nav__link= nav
+            .header__btn
+                a(href="#").btn.btn_orange заказать
+        .preview__intro
+            .preview__burger
+                img(src="img/burger.png").preview__image
+            .preview__text
+                h1.preview__title.section__title.section__title_yellow Мы делаем
+                p.preview__subtitle натуральные бургеры
+        .preview__arrow.arrow
+            a(href="#").arrow__link
+                img(src="img/arrow-scroll.svg").arrow__img

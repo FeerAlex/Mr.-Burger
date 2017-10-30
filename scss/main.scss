@@ -1,0 +1,13 @@
+// config
+@import 'config/_variables';
+@import 'config/_mixins';
+
+// base
+@import 'layout/_fonts';
+@import 'layout/_base';
+@import 'layout/_adjasment';
+
+// section
+@import 'section/_preview';
+@import 'section/_reviews';
+@import 'section/_favorite';

@@ -1,0 +1,51 @@
+.favorite {
+	background-image: url("../img/favorite.jpg");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__container {
+		height: 100%;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	&__title {
+		padding-top: rem(60px);
+		margin-bottom: rem(60px);
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	&__item {
+		width: 30%;
+		text-align: center;
+	}
+
+	&__img {
+		margin-bottom: 30px;
+	}
+
+	&__subtitle {
+		color: $gray;
+		font-family: 'Lifehack';
+		font-size: 24.1px;
+		font-weight: 500;
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+
+	&__body {
+		color: $gray;
+		font-weight: 300;
+		font-size: 14px;
+		line-height: 1.71;
+	}
+}

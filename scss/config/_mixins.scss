@@ -1,0 +1,41 @@
+@mixin placeholder {
+    &:-ms-input-placeholder {
+        @content
+    }
+    &::-moz-placeholder {
+        @content
+    }
+    &::-webkit-input-placeholder {
+        @content
+    }
+}
+
+@mixin pos-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+@mixin pos-cover($pos: 0) {
+	position: absolute;
+	top: $pos;
+	bottom: $pos;
+	right: $pos;
+	left: $pos;
+}
+
+@mixin transitio($char: all) {
+	transition: $char .2s ease-in-out;
+}
+
+@function rem($size: 16) {
+	@return ($size / 16px) + rem;
+}
+
+@mixin circle($size: 0, $color: $white) {
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+	background-color: $color;
+}
