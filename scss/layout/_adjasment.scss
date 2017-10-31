@@ -31,15 +31,15 @@
 		line-height: 1.42;
 		margin: 0;
 
-		&_yellow {
+		&--yellow {
 			color: $yellow;
 		}
 
-		&_white {
+		&--white {
 			color: $white;
 		}
 
-		&_black {
+		&--black {
 			color: $gray;
 		}
 	}
@@ -68,7 +68,7 @@
 			border: 1px solid #fff;
 		}
 
-		&:hover, &_active {
+		&:hover, &--active {
 
 			&:after {
 				width: 16px;
@@ -90,15 +90,19 @@
 	padding: 10px 16px;
 	@include transitio(background-color);
 
-	&_orange {
+	&--orange {
 		background-color: $orange;
+		border: none;
+		outline: none;
+		padding: 8px 16px;
+		cursor: pointer;
 
 		&:hover {
 			background-color: darken($orange, 7%);
 		}
 	}
 	
-	&_gray {
+	&--gray {
 		background-color: $gray;
 
 		&:hover {

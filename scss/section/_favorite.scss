@@ -8,13 +8,11 @@
 	align-items: center;
 
 	&__container {
-		height: 100%;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	&__title {
-		padding-top: rem(60px);
 		margin-bottom: rem(60px);
 	}
 

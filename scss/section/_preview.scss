@@ -54,11 +54,28 @@
 	 	position: absolute;
 	 	bottom: 30px;
 	 	@include transitio();
+	 	animation-duration: 2s;
+	 	animation-name: fade-down;
+	 	animation-iteration-count: infinite;
 
 	 	&:hover {
 	 		transform: scale(1.2);
 	 	}
 	 }
+}
+
+@keyframes fade-down {
+	0% {
+		transform: translate(0,0);
+		opacity: 0;
+	}
+	40%, 60% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate(0,10px);
+		opacity: 0;
+	}
 }
 
 .header {
@@ -89,7 +106,7 @@
 			display: inline-block;
 			vertical-align: middle;
 			@include circle(5px);
-			margin: 0 12px;
+			margin: 0 6px;
 		}
 
 		&:first-child:before {
@@ -107,21 +124,24 @@
 		display: inline-block;
 		vertical-align: middle;
 		position: relative;
+		padding: 6px;
 
 		&:after {
 			content: "";
 			position: absolute;
-			bottom: 0;
+			bottom: 4px;
 			left: 0;
+			right: 0;
 			background: $white;
 			width: 0;
 			height: 1px;
+			margin: auto;
 			@include transitio();
 		}
 
 		&:hover {
 			&:after {
-				width: 100%;
+				width: 88%;
 			}
 		}
 	}
