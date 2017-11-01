@@ -87,15 +87,14 @@
 	color: $white;
 	border-radius: 5px;
 	line-height: 1.42;
-	padding: 10px 16px;
+	padding: 8px 16px;
+	border: none;
+	outline: none;
+	cursor: pointer;
 	@include transitio(background-color);
 
 	&--orange {
 		background-color: $orange;
-		border: none;
-		outline: none;
-		padding: 8px 16px;
-		cursor: pointer;
 
 		&:hover {
 			background-color: darken($orange, 7%);
@@ -104,9 +103,18 @@
 	
 	&--gray {
 		background-color: $gray;
+		padding: 10px 16px;
 
 		&:hover {
 			background-color: darken($gray, 7%);
 		}
 	}
+
+	&--transparent {
+		text-transform: capitalize;
+		background-color: rgba($white, 0);
+		font-size: 14px;
+		font-weight: 300;
+	}
+	
 }

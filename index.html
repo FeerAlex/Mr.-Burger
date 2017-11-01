@@ -9,13 +9,14 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css"><!--[if lt IE 9]>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
     <div class="points">
       <ul class="points__list">
-        <li class="points__item"><a class="points__link points__link_active" href="#section-1"></a></li>
+        <li class="points__item"><a class="points__link points__link--active" href="#section-1"></a></li>
         <li class="points__item"><a class="points__link" href="#section-2"></a></li>
         <li class="points__item"><a class="points__link" href="#section-3"></a></li>
         <li class="points__item"><a class="points__link" href="#section-4"></a></li>
@@ -133,6 +134,85 @@
               </div>
             </li>
           </ul>
+        </section>
+        <section class="section order" id="section-7">
+          <div class="container order__container">
+            <h2 class="order__title section__title section__title--yellow">Закажите доставку</h2>
+            <div class="order__form form">
+              <form class="form__tag">
+                <div class="form__col">
+                  <div class="form__row">
+                    <div class="form__elem form__elem--middle">
+                      <label class="form__elem-title">Имя</label>
+                      <input class="form__input">
+                    </div>
+                    <div class="form__elem form__elem--middle">
+                      <label class="form__elem-title">Телефон</label>
+                      <input class="form__input">
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__elem form__elem--big">
+                      <label class="form__elem-title">Улица</label>
+                      <input class="form__input">
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__elem form__elem--small">
+                      <label class="form__elem-title">Дом</label>
+                      <input class="form__input">
+                    </div>
+                    <div class="form__elem form__elem--small">
+                      <label class="form__elem-title">Корпус</label>
+                      <input class="form__input">
+                    </div>
+                    <div class="form__elem form__elem--small">
+                      <label class="form__elem-title">Квартира</label>
+                      <input class="form__input">
+                    </div>
+                    <div class="form__elem form__elem--small">
+                      <label class="form__elem-title">Этаж</label>
+                      <input class="form__input">
+                    </div>
+                  </div>
+                </div>
+                <div class="form__col">
+                  <div class="form__row">
+                    <div class="form__textarea form__elem--big">
+                      <label class="form__elem-title">Комментарий</label>
+                      <textarea class="form__input form__input--area"></textarea>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__radio radio">
+                      <label class="radio__label">
+                        <input class="radio__label-elem" type="radio" name="pay">
+                        <div class="radio__label-circle"></div><span class="radio__label-title">Потребуется сдача</span>
+                      </label>
+                      <label class="radio__label">
+                        <input class="radio__label-elem" type="radio" name="pay">
+                        <div class="radio__label-circle"></div><span class="radio__label-title">Оплата по карте</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__checkbox checkbox">
+                      <label class="checkbox__label">
+                        <input class="checkbox__label-elem" type="checkbox" name="call">
+                        <div class="checkbox__label-square"></div><span class="checkbox__label-title">Не перезванивать</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form__row">
+                    <div class="form__controls">
+                      <button class="btn btn--orange form__submit" type="submit">Заказать</button>
+                      <button class="btn btn--transparent form__reset" type="reset">Очистить</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </section>
       </div>
     </div>
