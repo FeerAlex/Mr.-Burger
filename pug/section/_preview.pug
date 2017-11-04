@@ -7,7 +7,7 @@ section.section.preview#section-1
             .header__nav.nav
                 - var navs = ['о нас', 'бургеры', 'команда', 'меню', 'отзывы', 'контакты']
                 ul.nav__list
-                    each nav, i in navs
+                    each nav in navs
                         li.nav__item
                             a(href="#").nav__link= nav
             .header__btn

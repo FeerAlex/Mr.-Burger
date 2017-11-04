@@ -1,0 +1,84 @@
+.menu {
+	background-image: url("../img/menu.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+
+	&__title {
+		position: absolute;
+		top: 10%;
+		left: 8%;
+	}
+
+	&__list {
+		height: 100%;
+		display: flex;
+	}
+
+	&__item {
+		height: 100%;
+		display: flex;
+
+		&--active {
+
+			.menu__text {
+				display: block;
+			}
+
+			.menu__link {
+				color: $yellow;
+			}
+		}
+	}
+
+	&__text {
+		font-family: 'Ubuntu';
+		font-weight: 300;
+		color: $white;
+		line-height: 24px;
+		padding: 60px 30px;
+		width: 540px;
+		display: none;
+		background-color: rgba($gray, .93);
+	}
+
+	&__link {
+		width: 80px;
+		height: 100%;
+		font-size: 40px;
+		font-family: 'Gagalin';
+		color: $white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		white-space: nowrap;
+	    background-size: cover;
+	    background-repeat: no-repeat;
+	    background-position: 50%;
+
+	    @for $i from 1 to 3 {
+		  &--#{$i} {
+		  	background-image: url('../img/menu/menu-#{$i}.jpg');
+		  }
+		}
+
+		&:before {
+			background-color: rgba($gray, .7);
+			width: 80px;
+			height: 100%;
+			content: "";
+			position: absolute;
+		}
+	}
+
+	&__name {
+		display: inline-block;
+	    height: 80px;
+	    line-height: 80px;
+	    transform: rotate(-90deg);
+	}
+}

@@ -17,6 +17,9 @@ html
     script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
     <![endif]-->
 
+    script(src="js/vendor/jquery.min.js")
+    script(src="js/script.js")
+
   body
     .points
         - var n = 0;
@@ -29,5 +32,9 @@ html
         .main
             include section/_preview
             include section/_favorite
+            //- include section/_burgers
+            include section/_team
+            include section/_menu
             include section/_reviews
             include section/_order
+            include section/_map

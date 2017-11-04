@@ -23,7 +23,7 @@
 
 	&__photo {
 		@for $i from 1 to 9 {
-		  &_#{$i} {
+		  &--#{$i} {
 		  	background-image: url('../img/reviews/reviews-#{$i}.jpg');
 		  }
 		}

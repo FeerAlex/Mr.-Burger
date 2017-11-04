@@ -1,0 +1,107 @@
+.team {
+	background-image: url("../img/team.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+
+	&__about {
+		background-color: rgba($gray, .93);
+		height: 100%;
+		width: 49%;
+		padding-left: 80px;
+
+		display: flex;
+		align-items: center;
+	}
+
+	&__title {
+		margin-bottom: 70px;
+	}
+
+	&__list {
+	}
+
+	&__item {
+		margin-bottom: 35px;
+
+		&--active {
+			.team__link {
+				color: $yellow;
+
+				&:before {
+					transform: scaleY(-1);
+				}
+			}
+			.team__inner {
+				display: block;
+			}
+		}
+	}
+
+	&__link {
+		color: $white;
+		font-family: 'Gagalin';
+		font-size: 14px;
+		text-decoration: none;
+		font-weight: 400;
+		position: relative;
+		padding-left: 19px;
+		display: inline-block;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			width: 0;
+			height: 0;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-top: 6px solid $yellow;
+			@include transitio();
+		}
+	}
+
+	&__inner {
+		display: none;
+
+		&-wrap {
+			padding-top: 18px;
+			display: flex;
+		}
+
+		&-photo {
+			@include circle(100px);
+			margin: 0 23px 0 19px;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&-text {
+			width: 230px;
+			color: $white;
+			font-size: 14px;
+			font-family: 'Ubuntu';
+			font-weight: 300;
+		}
+
+		&-post {
+			display: inline-block;
+			font-weight: 700;
+			margin-bottom: 15px;
+		}
+
+		&-detailed {
+			line-height: 24px;
+		}
+
+		&-img {
+			height: 100%;
+		}
+	}
+}
