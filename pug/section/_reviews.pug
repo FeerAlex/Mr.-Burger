@@ -1,9 +1,9 @@
 section.section.reviews#section-6
-    - var n = 0;
+    - var n = 1;
     ul.reviews__list
-        while n < 8
-            li.reviews__item
-                div(class="reviews__photo reviews__photo--" + (n + 1))
+        while n < 9
+            li(style=`background-image: url(img/reviews/reviews-${n}.jpg)`).reviews__item
+                img(src=`background-image: url(img/reviews/reviews-${n}.jpg)` alt="Константин Спилберг").reviews__img
                 .reviews__shadow
                     h6.reviews__title Константин Спилберг
                     p.reviews__body

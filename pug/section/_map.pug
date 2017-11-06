@@ -4,12 +4,16 @@ section.section.map#section-8
 			.footer__contact
 				.contact
 					p.contact__address Санкт-Петербург, ул.Бабушкина, д.12/1, 15
-					a(href="tel:+78123771377").contact__phone +7 (812) 377-13-77
+					a(href="tel:+78123771377").contact__phone
+						svg.contact__icon
+							use(xlink:href="img/sprite.svg#phone")
+						span.contact__number +7 (812) 377-13-77
 			.footer__social
 				.social
-					- var socials = ['vk', 'facebook-official', 'instagram', 'twitter']
+					- var socials = ['vk', 'fb', 'inst', 'twitter']
 					ul.social__list
 						each social in socials
 							li.social__item
 								a(href="#" class="social__link")
-									i(class="fa fa-" + social aria-hidden="true")
+									svg.social__icon
+										use(xlink:href=`img/sprite.svg#${social}`)

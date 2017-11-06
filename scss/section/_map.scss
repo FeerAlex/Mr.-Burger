@@ -11,28 +11,27 @@
 .contact {
 	color: $white;
 	font-family: 'Ubuntu';
-	font-size: 14px;
+	font-size: rem(14px);
 	font-weight: 300;
 
 	&__address {
-		margin-bottom: 5px;
+		margin-bottom: rem(5px);
 	}
 
 	&__phone {
 		font-weight: 700;
 		text-decoration: none;
 		color: $orange;
-		position: relative;
-		padding-left: 20px;
+	}
 
-		&:before {
-			font-family: 'FontAwesome';
-			content: "\f095";
-			position: absolute;
-			left: 0;
-			top: 0;
-			bottom: 0;
-		}
+	&__icon {
+		width: rem(12px);
+		height: rem(11px);
+		fill: $orange;
+	}
+
+	&__number {
+		margin-left: rem(8px);
 	}
 }
 
@@ -40,28 +39,50 @@
 
 	&__item {
 		display: inline-block;
-		margin-left: 15px;
+		margin-left: rem(15px);
+
+		&:first-child {
+			margin-left: 0;
+		}
 	}
 
 	&__link {
+		display: inline-block;
 		font-family: 'FontAwesome';
-		color: rgba($white, .3);
+	}
+
+	&__icon {
+		width: rem(20px);
+		height: rem(20px);
+		fill: rgba($white, .3);
 		@include transitio();
 
 		&:hover {
-			color: $white;
+			fill: $white;
 		}
 	}
 }
 
 .footer {
 	background-image: url("../img/footer.jpg");
-	padding: 7px 0;
+	background-color: rgba($gray, .5);
+	padding: rem(7px) 0;
+
+	&__contact {
+		@include phones {
+			text-align: center;
+			margin-bottom: 15px;
+		}
+	}
 
 	&__container {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+
+		@include phones {
+			flex-direction: column;
+		}
 	}
 }

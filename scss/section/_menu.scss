@@ -38,17 +38,17 @@
 		font-family: 'Ubuntu';
 		font-weight: 300;
 		color: $white;
-		line-height: 24px;
-		padding: 60px 30px;
-		width: 540px;
+		line-height: rem(24px);
+		padding: rem(60px) rem(30px);
+		width: rem(540px);
 		display: none;
 		background-color: rgba($gray, .93);
 	}
 
 	&__link {
-		width: 80px;
+		width: rem(80px);
 		height: 100%;
-		font-size: 40px;
+		font-size: rem(40px);
 		font-family: 'Gagalin';
 		color: $white;
 		display: flex;
@@ -68,7 +68,7 @@
 
 		&:before {
 			background-color: rgba($gray, .7);
-			width: 80px;
+			width: rem(80px);
 			height: 100%;
 			content: "";
 			position: absolute;
@@ -77,8 +77,8 @@
 
 	&__name {
 		display: inline-block;
-	    height: 80px;
-	    line-height: 80px;
+	    height: rem(80px);
+	    line-height: rem(80px);
 	    transform: rotate(-90deg);
 	}
 }

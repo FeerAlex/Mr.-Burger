@@ -11,6 +11,11 @@
 		height: 50%;
 		position: relative;
 		overflow: hidden;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		filter: grayscale(100%);
+		display: flex;
 
 		&:hover {
 
@@ -18,45 +23,39 @@
 				opacity: 1;
 	    		transform: scale(1);
 			}
-	    }
+		}
+		
+		@include tablets {
+			width: 50%;
+			height: 25%;
+		}
 	}
 
-	&__photo {
-		@for $i from 1 to 9 {
-		  &--#{$i} {
-		  	background-image: url('../img/reviews/reviews-#{$i}.jpg');
-		  }
-		}
-
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		filter: grayscale(100%);
-		@include pos-cover();
+	&__img {
+		display: none;
 	}
 
 	&__shadow {
 		background-color: rgba(darken($gray, 20%), .7);
-	    padding: 46px 20px;
+	    padding: rem(46px) rem(20px);
 	    transform: scale(.8);
 	    opacity: 0;
-	    @include pos-cover();
 	    @include transitio();
 	}
 
 	&__title {
 		font-family: 'Gagalin';
-		font-size: 14px;
+		font-size: rem(14px);
 		color: $white;
-		margin-bottom: 21px;
+		margin-bottom: rem(21px);
 		font-weight: 400;
 	}
 
 	&__body {
-		font-size: 14px;
+		font-size: rem(14px);
 		line-height: 1.71;
 		color: $white;
 		font-weight: 300;
-		margin-bottom: 20px;
+		margin-bottom: rem(20px);
 	}
 }

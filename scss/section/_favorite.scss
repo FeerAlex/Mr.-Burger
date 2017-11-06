@@ -18,32 +18,66 @@
 
 	&__list {
 		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+
+		@include phones {
+			flex-direction: column;
+		}
 	}
 
 	&__item {
-		width: 30%;
+		margin-left: rem(20px);
 		text-align: center;
+		display: flex;
+		flex-direction: column;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		@include phones {
+			flex-direction: row;
+			text-align: left;
+			margin-bottom: 30px;
+			margin-left: 0;
+		}
 	}
 
-	&__img {
-		margin-bottom: 30px;
+	&__icon {
+		width: rem(97px);
+		height: rem(89px);
+		margin-bottom: rem(30px);
+
+		&--meat {
+			fill: darken($orange, 3%);
+		}
+		&--hand {
+			fill: lighten($yellow, 3%);
+		}
+		&--natural {
+			fill: $green;
+		}
+	}
+
+	&__text {
+
+		@include phones {
+			margin-left: 20px;
+		}
 	}
 
 	&__subtitle {
 		color: $gray;
 		font-family: 'Lifehack';
-		font-size: 24.1px;
+		font-size: rem(24px);
 		font-weight: 500;
-		margin-bottom: 20px;
+		margin-bottom: rem(20px);
 		display: inline-block;
 	}
 
 	&__body {
 		color: $gray;
 		font-weight: 300;
-		font-size: 14px;
+		font-size: rem(14px);
 		line-height: 1.71;
 	}
 }

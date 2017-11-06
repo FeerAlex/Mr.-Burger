@@ -13,151 +13,134 @@
 	}
 
 	&__title {
-		margin-bottom: 85px;
+		margin-bottom: rem(85px);
 	}
 }
 
 .form {
-
-	&__tag {
+	&__content {
 		display: flex;
-		justify-content: space-between;
+
+		@include tablets {
+			flex-direction: column;
+		}
 	}
 
 	&__col {
-		width: 49%;
+		margin-left: rem(20px);
+		flex: 1;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		@include tablets {
+			margin-left: 0;
+			padding: 0 20%;
+		}
 	}
 
 	&__row {
 		display: flex;
-		justify-content: space-between;
-		margin-bottom: 13px;
+		margin-bottom: rem(13px);
 	}
 
-	&__elem {
+	&__label {
+		flex: 1;
+		margin-left: rem(20px);
 
-		&-title {
-			display: inline-block;
-			font-weight: 300;
+		&--row {
+			display: flex;
+			flex: initial;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&-text {
+			display: block;
 			color: $white;
-			font-size: 14px;
-			margin-bottom: 8px;
+			font-weight: 300;
+			font-size: rem(14px);
+			margin-bottom: rem(8px);
+			cursor: pointer;
 		}
 
-		&--big {
+		&-input {
+			border-radius: rem(5px);
+			border: rem(1px) solid $lightgray;
+			outline: none;
+			padding: rem(5px) rem(10px);
 			width: 100%;
-		}
 
-		&--middle {
-			width: 48%;
-		}
-
-		&--small {
-			width: 22%;
-		}
-	}
-
-	&__input {
-		width: 100%;
-		height: 35px;
-		border-radius: 5px;
-		border: 1px solid #d1cfcb;
-		outline: none;
-		padding: 0 10px;
-
-		&--area {
-			height: 109px;
-			padding: 10px;
-			resize: none;
-		}
-	}
-}
-
-.radio__label {
-	margin-right: 20px;
-	cursor: pointer;
-
-	&-elem {
-		position: absolute;
-	    top: 0;
-	    left: -9999px;
-
-	    &:checked + .radio__label-circle {
-
-			&:after {
-				width: 7px;
-				height: 7px;
+			&--area {
+				height: rem(100px);
+				resize: none;
 			}
 		}
+	
 	}
 
-	&-circle {
-		display: inline-block;
-		@include circle(15px);
-		position: relative;
-		vertical-align: middle;
-		margin-right: 10px;
-
-		&:after {
-			content: "";
-			@include pos-center();
-			@include circle($color: $orange);
-			@include transitio();
-		}
-	}
-
-	&-title {
-		vertical-align: middle;
-		font-weight: 300;
+	&__controls {
+		display: flex;
+		align-items: center;
+		margin-right: rem(15px);
 		color: $white;
-		font-size: 14px;
-	}
-}
+		font-weight: 300;
+		font-size: rem(14px);
+		cursor: pointer;
 
-.checkbox__label {
-	cursor: pointer;
+		&-radio, &-checkbox {
+			position: absolute;
+		    left: rem(-9999px);
+		}
 
-	&-elem {
-		position: absolute;
-	    top: 0;
-	    left: -9999px;
-
-	    &:checked + .checkbox__label-square {
+		&-circle {
+			@include circle(rem(15px));
+			margin-right: rem(10px);
+			display: flex;
 
 			&:after {
-				font-size: 14px;
+				content: "";
+				transform: scale(0);
+				@include circle(100%, $orange);
+				@include transitio();
 			}
 		}
-	}
 
-	&-square {
-		width: 15px;
-		height: 15px;
-		background: $white;
-		position: relative;
-		display: inline-block;
-		vertical-align: middle;
-		margin-right: 10px;
+		&-square {
+			width: rem(15px);
+			height: rem(15px);
+			background-color: $white;
+			display: flex;
+			margin-right: rem(10px);
 
-		&:after {
-			content: "\f00c";
-			font-family: 'FontAwesome';
-			color: $orange;
-			font-size: 0;
-			width: 100%;
-			height: 100%;
-			text-align: center;
-			line-height: 15px;
-			display: inline-block;
-			@include pos-center();
-			@include transitio();
+			&:after {
+				content: "";
+				background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA/UlEQVRYR+2X2xGDQAhFsbKkFFNZTCnpLENGHHQWuOxDf/RXl3NkgdWJLr6mi/l0C5yZgZmIHkT00tt+lgDD3yt40RJnCGi4vPwmMVqgBN9JjBTw4JvEKAEEzhKfEQIwnIjm3gIpOKegJFDsV2Bkp+ElAbNfA4Eq+FHA7VdHoBquBcJ+NQSa4CKABNmNz1UGWfdvNa52K4NchGggLYGuceHoFmh5lviqg8WrzRCOFCHQfcVHIHjUhsPh3iCSszsrAb+5BLZGMVpkWjANtzIgQTMSVfBIgO8jEtVwRCCSaIKjApZEMzwjcJToAs8KiMTTm+3Zvu39RZTl3/+G9AM9yzxgiZaOZQAAAABJRU5ErkJggg==);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: rem(12px);
+				width: 100%;
+				height: 100%;
+				transform: scale(0);
+				@include transitio();
+			}
 		}
-	}
 
-	&-title {
-		vertical-align: middle;
-		font-weight: 300;
-		color: $white;
-		font-size: 14px;
+		&-radio:checked + .form__controls-circle {
+
+			&:after {
+				transform: scale(.5);
+			}
+		}
+
+		&-checkbox:checked + .form__controls-square {
+
+			&:after {
+				transform: scale(1);
+			}
+		}
 	}
 }

@@ -4,14 +4,19 @@ section.section.preview#section-1
             .header__logo.logo
                 a(href="#").logo__link
                     img(src="img/logo.svg").logo__img
-            .header__nav.nav
-                - var navs = ['о нас', 'бургеры', 'команда', 'меню', 'отзывы', 'контакты']
-                ul.nav__list
-                    each nav in navs
-                        li.nav__item
-                            a(href="#").nav__link= nav
-            .header__btn
+            .header__nav
+                nav.nav
+                    - var navs = ['о нас', 'бургеры', 'команда', 'меню', 'отзывы', 'контакты']
+                    ul.nav__list
+                        each nav in navs
+                            li.nav__item
+                                a(href="#").nav__link= nav
+            .header__btns
                 button.btn.btn--orange заказать
+                .btn-menu
+                    .btn-menu__line.btn-menu__line--1
+                    .btn-menu__line.btn-menu__line--2
+                    .btn-menu__line.btn-menu__line--3
         .preview__intro
             .preview__burger
                 img(src="img/burger.png").preview__image
@@ -19,5 +24,6 @@ section.section.preview#section-1
                 h2.preview__title.section__title.section__title--yellow Мы делаем
                 p.preview__subtitle натуральные бургеры
         .preview__arrow.arrow
-            a(href="#").arrow__link
-                img(src="img/arrow-scroll.svg").arrow__img
+            a(href="#section-2").arrow__link
+                svg.arrow__icon
+                    use(xlink:href="img/sprite.svg#arrow-scroll")
