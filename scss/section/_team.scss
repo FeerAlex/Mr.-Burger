@@ -7,11 +7,10 @@
 	&__about {
 		background-color: rgba($gray, .93);
 		height: 100%;
-		flex-basis: 50%;
-		padding-left: rem(80px);
+		flex-basis: 48.9%;
+		padding: rem(60px) 0 0 rem(80px);
 		display: flex;
 		flex-direction: column;
-		padding-top: rem(50px);
 
 		@include tablets {
 			flex-basis: 100%;
@@ -21,11 +20,11 @@
 	}
 
 	&__title {
-		margin-bottom: rem(70px);
+		margin-bottom: rem(59px);
 	}
 
 	&__item {
-		margin-bottom: rem(35px);
+		margin-bottom: rem(27px);
 
 		&--active {
 			.team__link {
@@ -74,11 +73,11 @@
 
 	&__inner {
 		display: none;
-		padding-top: rem(18px);
+		padding-top: rem(14px);
 
 		&-photo {
 			@include circle(rem(100px));
-			margin: 0 rem(23px) 0 rem(19px);
+			margin: 0 rem(23px) 0 rem(17px);
 			overflow: hidden;
 			display: flex;
 			justify-content: center;

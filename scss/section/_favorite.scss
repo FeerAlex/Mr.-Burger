@@ -13,7 +13,7 @@
 	}
 
 	&__title {
-		margin-bottom: rem(60px);
+		margin-bottom: rem(68px);
 	}
 
 	&__list {
@@ -25,9 +25,10 @@
 	}
 
 	&__item {
-		margin-left: rem(20px);
+		margin-left: rem(10px);
 		text-align: center;
 		display: flex;
+		flex: 1;
 		flex-direction: column;
 
 		&:first-child {
@@ -37,15 +38,18 @@
 		@include phones {
 			flex-direction: row;
 			text-align: left;
-			margin-bottom: 30px;
+			margin-bottom: rem(30px);
 			margin-left: 0;
 		}
+	}
+
+	&__img {
+		margin-bottom: rem(25px);
 	}
 
 	&__icon {
 		width: rem(97px);
 		height: rem(89px);
-		margin-bottom: rem(30px);
 
 		&--meat {
 			fill: darken($orange, 3%);
@@ -70,8 +74,9 @@
 		font-family: 'Lifehack';
 		font-size: rem(24px);
 		font-weight: 500;
-		margin-bottom: rem(20px);
+		margin-bottom: rem(13px);
 		display: inline-block;
+		line-height: 1.2;
 	}
 
 	&__body {

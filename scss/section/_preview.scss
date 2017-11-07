@@ -34,16 +34,16 @@
 	}
 
 	&__intro {
+		padding: 0 rem(17px);
 		display: flex;
 
 		@include tablets {
 			flex-direction: column;
-			padding: 0 rem(151px);
 		}
 	}
 
 	&__burger, &__text {
-		width: 50%;
+		flex-basis: 50%;
 
 		@include tablets {
 			width: 100%;
@@ -53,7 +53,8 @@
 	 &__text {
 		display: flex;
 	 	flex-direction: column;
-	 	justify-content: center;
+		 justify-content: center;
+		 padding-left: rem(12px);
 	 }
 
 	 &__image {
@@ -63,7 +64,8 @@
 	 }
 
 	 &__title {
-	 	padding-top: rem(60px);
+		 padding-top: rem(33px);
+		 margin-bottom: rem(14px);
 	 }
 
 	 &__subtitle {
@@ -71,12 +73,13 @@
 	 	font-family: 'Lifehack';
 	 	font-size: rem(65px);
 	 	font-weight: 500;
-	 	line-height: 1;
+		line-height: 0.93;
+		letter-spacing: rem(-1.7px);
 	 }
 
 	 &__arrow {
 	 	position: absolute;
-	 	bottom: rem(30px);
+	 	bottom: rem(35px);
 	 	@include transitio();
 	 	animation-duration: 2s;
 	 	animation-name: fade-down;
@@ -113,7 +116,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding-top: rem(10px);
 
 	&__nav {
 		margin-left: auto;
@@ -124,9 +126,24 @@
 	}
 
 	&__btns {
-		margin-left: rem(15px);
+		margin-left: rem(7px);
 		display: flex;
 		align-items: center;
+	}
+
+	&__logo {
+		padding-top: rem(10px);
+		margin-left: rem(-6px);
+	}
+}
+.logo {
+
+	&__link {
+		display: inline-block;
+	}
+
+	&__img {
+		width: 100%;
 	}
 }
 
@@ -143,8 +160,8 @@
 		&:before {
 			content: '';
 			display: block;
-			@include circle(rem(5px));
-			margin: 0 rem(6px);
+			@include circle(rem(4px));
+			margin: 0 rem(9.5px);
 		}
 
 		&:first-child:before {
@@ -184,13 +201,13 @@
 }
 
 .btn-menu {
-	width: 24px;
-	height: 22px;
+	width: rem(24px);
+	height: rem(22px);
 	cursor: pointer;
 	display: none;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-left: 30px;
+	margin-left: rem(30px);
 
 	@include tablets {
 		display: flex;
@@ -198,8 +215,8 @@
 
 	&__line {
 	  background-color: $white;
-	  height: 4px;
-	  border-radius: 2px;
+	  height: rem(4px);
+	  border-radius: rem(2px);
 	  pointer-events: none;
 	}
 }

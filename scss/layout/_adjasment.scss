@@ -2,7 +2,6 @@
 	width: 100%;
 	min-height: 100%;
 	position: relative;
-	// overflow: hidden;
 }
 
 .container {
@@ -88,7 +87,7 @@
 	text-transform: uppercase;
 	color: $white;
 	border-radius: rem(5px);
-	padding: rem(8px) rem(16px);
+	padding: rem(10px) rem(16px);
 	border: none;
 	outline: none;
 	cursor: pointer;
