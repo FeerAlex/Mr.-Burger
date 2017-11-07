@@ -24,7 +24,7 @@
 	}
 
 	&__item {
-		margin-bottom: rem(27px);
+		margin-bottom: rem(25px);
 
 		&--active {
 			.team__link {
@@ -73,11 +73,11 @@
 
 	&__inner {
 		display: none;
-		padding-top: rem(14px);
+		padding: rem(12px) 0 rem(10px) 0;
 
 		&-photo {
 			@include circle(rem(100px));
-			margin: 0 rem(23px) 0 rem(17px);
+			margin: rem(3px) rem(21px) 0 rem(17px);
 			overflow: hidden;
 			display: flex;
 			justify-content: center;
