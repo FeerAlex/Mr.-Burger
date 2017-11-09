@@ -2,8 +2,8 @@
 	background: url('../img/preview.jpg') center no-repeat;
 	background-size: cover;
 	display: flex;
-	flex-direction: column;
 	position: relative;
+	justify-content: center;
 
 	&:before {
 		content: "";
@@ -29,25 +29,21 @@
 	}
 
 	&__container {
-		align-items: center;
-		padding-bottom: 6%;
+		display: flex;
+		flex: 1;
+		flex-direction: column;
 		justify-content: center;
-		height: 100%;
-
-		@include phones {
-			padding-bottom: 0;
-		}
+		padding-bottom: 20%;
 	}
 
 	&__intro {
 		display: flex;
-		// flex: 1;
-		align-items: center;
 
 		@include tablets {
-			padding: 0 10%;
 			flex-direction: column;
+			align-items: center;
 			text-align: center;
+			padding: 0 10%;
 		}
 	}
 
@@ -121,7 +117,7 @@
 
 	 &__arrow {
 	 	position: absolute;
-	 	bottom: rem(35px);
+		bottom: rem(35px);
 	 	@include transitio();
 	 	animation-duration: 2s;
 	 	animation-name: fade-down;
@@ -158,8 +154,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: absolute;
-	top: 0;
 
 	@include tablets {
 		padding: rem(2px) rem(8px);

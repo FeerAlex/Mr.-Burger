@@ -12,7 +12,7 @@
 	}
 
 	&__title {
-		margin-bottom: rem(68px);
+		margin-bottom: 10%;
 	}
 
 	&__list {
@@ -37,13 +37,17 @@
 		@include phones {
 			flex-direction: row;
 			text-align: left;
-			margin-bottom: rem(30px);
+			margin-bottom: rem(60px);
 			margin-left: 0;
 		}
 	}
 
 	&__img {
-		margin-bottom: rem(25px);
+		margin-bottom: rem(26px);
+
+		@include phones {
+			margin-bottom: 0;
+		}
 	}
 
 	&__icon {
@@ -59,12 +63,18 @@
 		&--natural {
 			fill: $green;
 		}
+
+		@include phones {
+			width: rem(95px);
+			height: rem(85px);
+		}
 	}
 
 	&__text {
 
 		@include phones {
-			margin-left: 20px;
+			margin-left: rem(30px);
+			letter-spacing: 1px;
 		}
 	}
 
@@ -73,7 +83,7 @@
 		font-family: 'Lifehack';
 		font-size: rem(24px);
 		font-weight: 500;
-		margin-bottom: rem(13px);
+		margin-bottom: rem(15px);
 		display: inline-block;
 		line-height: 1.2;
 	}
@@ -83,5 +93,9 @@
 		font-weight: 300;
 		font-size: rem(14px);
 		line-height: 1.71;
+
+		@include phones {
+			line-height: 2;
+		}
 	}
 }
