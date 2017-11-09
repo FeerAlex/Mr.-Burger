@@ -29,16 +29,25 @@
 	}
 
 	&__container {
-		flex: 1;
 		align-items: center;
+		padding-bottom: 6%;
+		justify-content: center;
+		height: 100%;
+
+		@include phones {
+			padding-bottom: 0;
+		}
 	}
 
 	&__intro {
-		padding: 0 rem(17px);
 		display: flex;
+		// flex: 1;
+		align-items: center;
 
 		@include tablets {
+			padding: 0 10%;
 			flex-direction: column;
+			text-align: center;
 		}
 	}
 
@@ -49,12 +58,27 @@
 			width: 100%;
 		}
 	}
+	&__burger {
+		@include tablets {
+			margin-bottom: rem(30px);
+		}
+		
+		@include phones {
+			margin-bottom: rem(40px);
+		}
+	}
 
 	 &__text {
 		display: flex;
 	 	flex-direction: column;
-		 justify-content: center;
-		 padding-left: rem(12px);
+		justify-content: center;
+		padding-left: rem(12px);
+
+		@include tablets {
+			justify-content: flex-start;
+			padding-left: 0;
+			line-height: 60px;
+		}
 	 }
 
 	 &__image {
@@ -66,6 +90,17 @@
 	 &__title {
 		 padding-top: rem(33px);
 		 margin-bottom: rem(14px);
+
+		 @include tablets {
+			 padding-top: 0;
+			 margin-bottom: rem(35px);
+			 letter-spacing: rem(3px);
+		 }
+
+		 @include phones {
+			 letter-spacing: 0;
+			 margin-bottom: rem(10px);
+		 }
 	 }
 
 	 &__subtitle {
@@ -73,8 +108,15 @@
 	 	font-family: 'Lifehack';
 	 	font-size: rem(65px);
 	 	font-weight: 500;
-		line-height: 0.93;
 		letter-spacing: rem(-1.7px);
+
+		@include tablets {
+			letter-spacing: 1px;
+		}
+
+		@include phones {
+			letter-spacing: -3px;
+		}
 	 }
 
 	 &__arrow {
@@ -116,6 +158,12 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: absolute;
+	top: 0;
+
+	@include tablets {
+		padding: rem(2px) rem(8px);
+	}
 
 	&__nav {
 		margin-left: auto;
@@ -126,7 +174,7 @@
 	}
 
 	&__btns {
-		margin-left: rem(7px);
+		margin: 0 rem(4px) 0 rem(7px);
 		display: flex;
 		align-items: center;
 	}
@@ -211,6 +259,7 @@
 
 	@include tablets {
 		display: flex;
+		margin-left: rem(32px);
 	}
 
 	&__line {

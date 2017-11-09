@@ -97,6 +97,10 @@
 	&--orange {
 		background-color: $orange;
 
+		@include tablets {
+			letter-spacing: 1.3px;
+		}
+
 		&:hover {
 			background-color: darken($orange, 7%);
 		}
