@@ -15,16 +15,34 @@
 		@include tablets {
 			flex-basis: 100%;
 			align-items: center;
-			padding-left: 0;
+			padding: rem(100px) 0 0 0;
+		}
+
+		@include phones {
+			padding-top: rem(50px);
 		}
 	}
 
 	&__title {
 		margin-bottom: rem(59px);
+
+		@include tablets {
+			letter-spacing: rem(2.3px);
+			margin-bottom: rem(120px);
+		}
+
+		@include phones {
+			letter-spacing: rem(1px);
+			margin-bottom: rem(95px);
+		}
 	}
 
 	&__item {
 		margin-bottom: rem(25px);
+
+		@include phones {
+			margin-bottom: rem(29px);
+		}
 
 		&--active {
 			.team__link {
@@ -59,6 +77,10 @@
 		display: inline-flex;
 		align-items: center;
 
+		@include tablets {
+			font-size: rem(25px);
+		}
+
 		&:before {
 			content: "";
 			margin-right: rem(8px);
@@ -75,6 +97,14 @@
 		display: none;
 		padding: rem(12px) 0 rem(10px) 0;
 
+		@include tablets {
+			padding-bottom: rem(5px);
+		}
+
+		@include phones {
+			padding-bottom: 0;
+		}
+
 		&-photo {
 			@include circle(rem(100px));
 			margin: rem(3px) rem(21px) 0 rem(17px);
@@ -82,6 +112,17 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+
+			@include tablets {
+				margin-bottom: rem(20px);
+				width: rem(105px);
+				height: rem(105px);
+			}
+
+			@include phones {
+				width: rem(115px);
+				height: rem(115px);
+			}
 		}
 
 		&-text {
@@ -90,16 +131,33 @@
 			font-size: rem(14px);
 			font-family: 'Ubuntu';
 			font-weight: 300;
+
+			@include tablets {
+				font-size: rem(15px);
+				width: rem(360px);
+			}
 		}
 
 		&-post {
 			display: inline-block;
 			font-weight: 700;
 			margin-bottom: rem(15px);
+
+			@include tablets {
+				font-size: rem(14px);
+			}
 		}
 
 		&-detailed {
 			line-height: rem(24px);
+
+			@include tablets {
+				line-height: 1.7;
+			}
+
+			@include phones {
+				line-height: 2;
+			}
 		}
 
 		&-img {

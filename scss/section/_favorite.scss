@@ -13,6 +13,10 @@
 
 	&__title {
 		margin-bottom: 10%;
+
+		@include phones {
+			margin-bottom: 15%;
+		}
 	}
 
 	&__list {
@@ -37,7 +41,7 @@
 		@include phones {
 			flex-direction: row;
 			text-align: left;
-			margin-bottom: rem(60px);
+			margin-bottom: rem(55px);
 			margin-left: 0;
 		}
 	}
@@ -65,8 +69,8 @@
 		}
 
 		@include phones {
-			width: rem(95px);
-			height: rem(85px);
+			width: rem(109px);
+			height: rem(99px);
 		}
 	}
 
