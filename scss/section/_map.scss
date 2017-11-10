@@ -14,6 +14,15 @@
 	font-size: rem(14px);
 	font-weight: 300;
 
+	@include tablets {
+		letter-spacing: rem(0.4px);
+	}
+
+	@include phones {
+		font-size: rem(15px);
+		margin-bottom: rem(6px);
+	}
+
 	&__address {
 		margin-bottom: rem(5px);
 	}
@@ -40,6 +49,10 @@
 	&__item {
 		display: inline-block;
 		margin-left: rem(15px);
+
+		@include tablets {
+			margin-left: rem(20px);
+		}
 
 		&:first-child {
 			margin-left: 0;
@@ -68,10 +81,14 @@
 	background-color: rgba($gray, .5);
 	padding: rem(8.5px) 0;
 
+	@include phones {
+		padding: rem(19px) 0;
+	}
+
 	&__contact {
 		@include phones {
 			text-align: center;
-			margin-bottom: 15px;
+			margin-bottom: rem(15px);
 		}
 	}
 
@@ -80,6 +97,10 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+
+		@include tablets {
+			width: 94%;
+		}
 
 		@include phones {
 			flex-direction: column;

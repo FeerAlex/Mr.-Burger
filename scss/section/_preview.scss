@@ -73,7 +73,6 @@
 		@include tablets {
 			justify-content: flex-start;
 			padding-left: 0;
-			line-height: 60px;
 		}
 	 }
 
@@ -105,13 +104,14 @@
 	 	font-size: rem(65px);
 	 	font-weight: 500;
 		letter-spacing: rem(-1.7px);
+		line-height: 0.923;
 
 		@include tablets {
-			letter-spacing: 1px;
+			letter-spacing: rem(1px);
 		}
 
 		@include phones {
-			letter-spacing: -3px;
+			letter-spacing: rem(-3px);
 		}
 	 }
 

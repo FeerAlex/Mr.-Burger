@@ -14,6 +14,17 @@
 
 	&__title {
 		margin-bottom: rem(63px);
+
+		@include tablets {
+			margin-bottom: rem(75px);
+		}
+
+		@include phones {
+			padding: 0 10%;
+			letter-spacing: rem(1px);
+			line-height: 1.2;
+			margin-bottom: rem(35px);
+		}
 	}
 }
 
@@ -36,7 +47,12 @@
 
 		@include tablets {
 			margin-left: 0;
-			padding: 0 20%;
+			padding: 0 17.8%;
+			margin-bottom: rem(18px);
+		}
+
+		@include phones {
+			padding: 0;
 		}
 	}
 
@@ -46,6 +62,17 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		&_controls {
+			@include phones {
+				justify-content: center;
+				padding-top: rem(18px);
+			}
+		}
+
+		@include tablets {
+			margin-bottom: rem(20px);
 		}
 	}
 
@@ -77,9 +104,21 @@
 			padding: rem(7.5px) rem(10px);
 			width: 100%;
 
+			@include phones {
+				padding: rem(10px);
+			}
+
 			&--area {
 				height: rem(109px);
 				resize: none;
+
+				@include tablets {
+					height: rem(115px);
+				}
+
+				@include phones {
+					height: rem(125px);
+				}
 			}
 		}
 	

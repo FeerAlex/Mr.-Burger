@@ -98,12 +98,12 @@
 	display: inline-block;
 	@include transitio(background-color);
 
+	@include tablets {
+		letter-spacing: rem(1.3px);
+	}
+
 	&--orange {
 		background-color: $orange;
-
-		@include tablets {
-			letter-spacing: 1.3px;
-		}
 
 		&:hover {
 			background-color: darken($orange, 7%);
@@ -116,6 +116,10 @@
 
 		&:hover {
 			background-color: darken($gray, 7%);
+		}
+
+		@include phones {
+			padding: rem(9.5px) rem(23px);
 		}
 	}
 
