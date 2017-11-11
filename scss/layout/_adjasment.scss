@@ -96,6 +96,7 @@
 	outline: none;
 	cursor: pointer;
 	display: inline-block;
+	font-family: "Ubuntu";
 	@include transitio(background-color);
 
 	@include tablets {
@@ -130,4 +131,18 @@
 		font-weight: 300;
 	}
 	
+}
+
+.arrow-icon {
+	width: rem(30px);
+	height: rem(14px);
+	fill: $white;
+
+	&--prev {
+		transform: rotate(90deg);
+	}
+	
+	&--next {
+		transform: rotate(-90deg);
+	}
 }

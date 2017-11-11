@@ -32,7 +32,7 @@
 }
 
 @mixin transitio($char: all) {
-	transition: $char .2s ease-in-out;
+	transition: $char .3s ease-in-out;
 }
 
 @function rem($size: 16px) {

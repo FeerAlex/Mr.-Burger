@@ -1,0 +1,407 @@
+.burgers {
+    background-image: linear-gradient(rgb(249,180,59) 0%, rgb(235,140,56) 48%, rgb(249,180,59) 74%);    
+    display: flex;
+    align-items: center;
+    padding: 0 rem(50px);
+
+    @include phones {
+        padding: 0 rem(33px);
+    }
+    
+    &__slider {
+        height: 100%;
+    }
+}
+.slider {
+    display: flex;
+    position: relative;
+
+    &__title {
+        line-height: 0.88;
+        margin-bottom: rem(41px);
+
+        @include tablets {
+            line-height: 0.9;
+            font-size: rem(76px);
+            margin-bottom: rem(25px);
+        }
+
+        @include phones {
+            font-size: rem(57px);
+            letter-spacing: rem(-0px);
+            line-height: 1.2;
+            width: 70%;
+            margin-bottom: rem(18px);
+        }
+    }
+
+    &__controls {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        &--prev {
+            right: 100%;
+        }
+
+        &--next {
+            left: 100%;
+        }
+    }
+
+    &__link {
+        width: rem(50px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        @include tablets {
+            flex-direction: column;
+        }
+    }
+
+    &__photo, &__desc {
+        width: 50%;
+
+        @include tablets {
+            width: 90%;
+        }
+
+        @include tablets {
+            width: 100%;
+        }
+    }
+
+    &__photo {
+        position: relative;
+        padding: rem(80px) 0;
+        text-align: center;
+
+        @include tablets {
+            padding: rem(90px) 0 rem(30px) 0;
+        }
+
+        @include phones {
+            padding: rem(149px) 0 rem(20px) 0;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        display: inline-block;
+
+        @include tablets {
+            width: 78%;
+        }
+
+        @include phones {
+            width: 90%;
+        }
+    }
+
+    &__desc {
+        display: flex;
+        flex-direction: column;
+        margin-left: rem(30px);
+
+        @include tablets {
+            margin-left: 0;
+            letter-spacing: 0.45px;
+            text-align: center;
+            align-items: center;
+        }
+    }
+
+    &__text {
+        font-weight: 300;
+        color: $white;
+        line-height: 1.78;
+        font-size: rem(14px);
+        margin-bottom: rem(17px);
+
+        @include tablets {
+            margin-bottom: rem(32px);
+        }
+
+        @include phones {
+            font-size: rem(15px);
+            margin-bottom: rem(15px);
+        }
+    }
+
+    &__pay {
+        display: flex;
+        align-items: flex-end;
+
+        @include tablets {
+            justify-content: center;
+        }
+    }
+
+    &__price {
+        font-family: 'Gagalin';
+        color: $orange;
+        line-height: 1.05;
+        letter-spacing: rem(-1.5px);
+
+        &-value {
+            font-size: rem(72px);
+
+            @include tablets {
+                font-size: rem(76px);
+            }
+
+            @include phones {
+                font-size: rem(57px);
+            }
+        }
+
+        &-text {
+            font-size: rem(30px);
+            margin-left: rem(10px);
+
+            @include tablets {
+                font-size: rem(33px);
+                margin-left: rem(8px);
+            }
+
+            @include phones {
+                font-size: rem(28px);
+                margin-left: rem(10px);
+            }
+        }
+    }
+
+    &__btn {
+        margin-left: rem(30px);
+
+        @include phones {
+            margin-left: rem(37px);
+            padding: rem(12.5px) rem(17px);
+        }
+    }
+
+    &__structure {
+        position: absolute;
+        top: rem(6px);
+        left: rem(2px);
+
+        @include tablets {
+            left: rem(50px);
+        }
+
+        @include phones {
+            left: -8%;
+            top: 5%;
+        }
+    }
+    
+    &__kilo {
+        position: absolute;
+        bottom: rem(16px);
+        left: rem(2px);
+
+        @include tablets {
+            left: auto;
+            bottom: auto;
+            top: rem(6px);
+            right: rem(60px);
+        }
+
+        @include phones {
+            right: -7%;
+            top: 5%;
+        }
+    }
+}
+
+.structure {
+    position: relative;
+    width: rem(90px);
+    height: rem(90px);
+    border-radius: rem(5px);
+    background-color: $lightorange;
+    padding: rem(13px) 0;
+    text-align: center;
+    cursor: pointer;
+
+    @include tablets {
+        width: rem(97px);
+        height: rem(97px);
+    }
+
+    @include phones {
+        width: rem(103px);
+        height: rem(103px);
+    }
+
+    &__svg {
+        fill: $white;
+        width: rem(45px);
+        height: rem(45px);
+
+        @include tablets {
+            width: rem(49px);
+            height: rem(49px);
+        }
+    }
+
+    &__text {
+        font-family: "Gagalin";
+        font-size: rem(14px);
+        color: $white;
+    }
+
+    &__table {
+        position: absolute;
+        top: 0;
+        left: rem(-9999px);
+        opacity: 0;
+        background: rgba($white, .9);
+        padding: rem(10px) rem(22px);
+        width: rem(270px);
+        border-radius: rem(5px);
+        overflow: hidden;
+        @include transitio(opacity);
+
+        @include tablets {
+            width: rem(343px);
+            padding: rem(14px) rem(22px);
+        }
+    }
+
+    &:hover {
+        background-color: $orange;
+
+        .structure__table {
+            left: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+.kilo {
+    position: relative;
+    text-align: center;
+
+    &__svg {
+        width: rem(60px);
+        height: rem(60px);
+        fill: rgba($white, 0.5);
+        text-align: center;
+
+        @include tablets {
+            width: rem(65px);
+            height: rem(65px);
+        }
+
+        @include phones {
+            width: rem(68px);
+            height: rem(68px);
+        }
+    }
+
+    &__value, &__text {
+        font-family: "Gagalin";
+        font-size: rem(14px);
+        position: absolute;
+        color: rgba($white, 0.5);
+        right: 0;
+        left: 0;
+        bottom: -20%;
+    }
+
+    &__value {
+        font-size: rem(20px);
+        bottom: 20%;
+    }
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: rem(14px);
+    color: $gray;
+    line-height: 1;
+    position: relative;
+
+    &__td {
+        padding: rem(6px) 0;
+
+        @include tablets {
+            padding: rem(7.8px) 0;
+        }
+
+        &--img {
+            width: rem(68px);
+            text-align: left;
+
+            @include tablets {
+                width: rem(75px);
+            }
+        }
+
+        &--name {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        &--weight {
+            text-align: right;
+            font-weight: 300;
+            letter-spacing: rem(0.2px);
+
+            @include tablets {
+                width: rem(90px);
+                text-align: left;
+            }
+        }
+
+        &-svg {
+            
+            &--beef {
+                width: rem(44px);
+                height: rem(39.212px);
+                fill: $orange;
+            }
+            
+            &--sauce {
+                width: rem(40.189px);
+                height: rem(43.416px);
+                fill: $orange;
+            }
+    
+            &--buns {
+                width: rem(48px);
+                height: rem(30.317px);
+                fill: $yellow;
+            }
+    
+            &--cheese {
+                width: rem(38.126px);
+                height: rem(34.138px);
+                fill: $yellow;
+            }
+    
+            &--salad {
+                width: rem(38px);
+                height: rem(38.638px);
+                fill: $green;
+            }
+            
+            &--cucumber {
+                width: rem(42px);
+                height: rem(37.754px);
+                fill: $green;
+            }
+        }
+    }
+}
