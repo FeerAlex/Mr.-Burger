@@ -89,7 +89,7 @@
         }
 
         @include phones {
-            padding: rem(149px) 0 rem(20px) 0;
+            padding: rem(100px) 0 rem(20px) 0;
         }
     }
 
@@ -198,8 +198,8 @@
         }
 
         @include phones {
-            left: -8%;
-            top: 5%;
+            left: -7%;
+            top: -6%;
         }
     }
     
@@ -217,7 +217,7 @@
 
         @include phones {
             right: -7%;
-            top: 5%;
+            top: -6%;;
         }
     }
 }
@@ -340,6 +340,10 @@
             padding: rem(7.8px) 0;
         }
 
+        @include phones {
+            padding: rem(9.8px) 0;
+        }
+
         &--img {
             width: rem(68px);
             text-align: left;
@@ -362,6 +366,10 @@
             @include tablets {
                 width: rem(90px);
                 text-align: left;
+            }
+
+            @include tablets {
+                width: rem(75px);
             }
         }
 

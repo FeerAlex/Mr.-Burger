@@ -170,6 +170,7 @@
 	&__logo {
 		padding-top: rem(10px);
 		margin-left: rem(-6px);
+		z-index: 12;
 	}
 }
 .logo {
@@ -241,19 +242,102 @@
 	height: rem(22px);
 	cursor: pointer;
 	display: none;
-	flex-direction: column;
-	justify-content: space-between;
 	margin-left: rem(30px);
+	z-index: 11;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
 
 	@include tablets {
-		display: flex;
+		display: block;
 		margin-left: rem(32px);
 	}
 
 	&__line {
-	  background-color: $white;
-	  height: rem(4px);
-	  border-radius: rem(2px);
-	  pointer-events: none;
+		display: block;
+		position: absolute;
+		height: rem(4px);
+		width: 100%;
+		background-color: $white;
+		opacity: 1;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+		pointer-events: none;
+		will-change: transform;
+		left: 0;
+		border-radius: rem(2px);
+
+		&:nth-child(1) {
+			top: rem(0px);
+		}
+		  
+		&:nth-child(2) {
+			top: rem(9px);
+		}
+		  
+		&:nth-child(3) {
+			top: rem(18px);
+		}
+	}
+
+	&--open {
+
+		.btn-menu {
+
+			&__line {
+
+				&:nth-child(1) {
+					top: rem(9px);
+					transform: rotate(45deg);
+				}
+
+				&:nth-child(2) {
+					opacity: 0;
+				}
+				  
+				&:nth-child(3) {
+					top: rem(9px);
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+.header__nav--active {
+	position: fixed;
+	display: block;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 11;
+	background: rgba($gray, 1);
+
+	.nav {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&__list {
+			flex-direction: column;
+		}
+
+		&__item {
+			flex-direction: column;
+
+			&:before {
+				@include circle(rem(7px));
+				margin: rem(21px) 0;
+			}
+		}
+
+		&__link {
+			line-height: 1;
+			font-size: rem(24px);
+			font-weight: 400;
+		}
 	}
 }
