@@ -16,9 +16,6 @@ html(lang="ru")
     script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
     <![endif]-->
 
-    script(src="js/vendor/jquery.min.js")
-    script(src="js/script.js")
-
   body
     .wrapper
         .main
@@ -35,5 +32,9 @@ html(lang="ru")
             ul.points__list
                 while n < 8
                     li.points__item
-                        a(href="#section-" + (n + 1) class="points__link" + ((n == 0) ? " points__link--active" : ""))
+                        a(href="#section-" + (n + 1)).points__link
                             - n++;
+    
+    script(src="js/vendor/jquery.min.js")
+    script(src="js/vendor/jquery.mousewheel.min.js")
+    script(src="js/script.js")

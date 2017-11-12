@@ -6,11 +6,11 @@ section.section.preview#section-1
                     img(src="img/logo.svg").logo__img
             .header__nav
                 nav.nav
-                    - var navs = ['о нас', 'бургеры', 'команда', 'меню', 'отзывы', 'контакты']
+                    - var navs = [{title: "о нас", href: "#section-2"}, {title: "бургеры", href: "#section-3"}, {title: "команда", href: "#section-4"}, {title: "меню", href: "#section-5"}, {title: "отзывы", href: "#section-6"},{title: "контакты", href: "#section-8"}]
                     ul.nav__list
                         each nav in navs
                             li.nav__item
-                                a(href="#").nav__link= nav
+                                a(href=`${nav.href}`).nav__link= nav.title
             .header__btns
                 button.btn.btn--orange заказать
                 .btn-menu#gamburger
