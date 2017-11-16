@@ -32,7 +32,7 @@ html(lang="ru")
             ul.points__list
                 while n < 8
                     li.points__item
-                        a(href="#section-" + (n + 1)).points__link
+                        a(href="#section-" + (n + 1) data-section=`${n}`).points__link
                             - n++;
     
     script(src="js/vendor/jquery.min.js")

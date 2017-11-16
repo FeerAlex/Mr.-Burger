@@ -6,13 +6,13 @@ section.section.preview#section-1
                     img(src="img/logo.svg").logo__img
             .header__nav
                 nav.nav
-                    - var navs = [{title: "о нас", href: "#section-2"}, {title: "бургеры", href: "#section-3"}, {title: "команда", href: "#section-4"}, {title: "меню", href: "#section-5"}, {title: "отзывы", href: "#section-6"},{title: "контакты", href: "#section-8"}]
+                    - var navs = [{title: "о нас", sec: "1"}, {title: "бургеры", sec: "2"}, {title: "команда", sec: "3"}, {title: "меню", sec: "4"}, {title: "отзывы", sec: "5"}, {title: "контакты", sec: "7"}]
                     ul.nav__list
-                        each nav in navs
+                        each nav, i in navs
                             li.nav__item
-                                a(href=`${nav.href}`).nav__link= nav.title
+                                a(href=`#section-${i + 1}` data-section=`${nav.sec}`).nav__link= nav.title
             .header__btns
-                button.btn.btn--orange заказать
+                button(data-section="6" id="order").btn.btn--orange заказать
                 .btn-menu#gamburger
                     span.btn-menu__line
                     span.btn-menu__line
@@ -25,6 +25,6 @@ section.section.preview#section-1
                     h2.preview__title.section__title.section__title--yellow Мы делаем
                     p.preview__subtitle натуральные бургеры
     .preview__arrow.arrow
-        a(href="#section-2").arrow__link
+        a(href="#section-2" data-section="1" id="about").arrow__link
             svg.arrow-icon
                 use(xlink:href="img/sprite.svg#arrow-scroll")

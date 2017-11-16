@@ -6,14 +6,28 @@ let _onePageScroll = (function()  {
 		inScroll	= false;
 
 	$('.section:first-child').addClass('section--active');
+	$('.points__item:first-child .points__link').addClass('points__link--active');
 
 	let _activePoints = (active) => {
-		console.log(active);
 		points.removeClass('points__link--active');
 		points.filter(`[href^='${active}']`).addClass('points__link--active');
 	}
 
-	let _scroll = function(e) {
+	let _moveTo = () => {
+		let pos		= (-screen * 100) + '%';
+
+		sections.eq(screen).addClass('section--active').siblings().removeClass('section--active');
+		container.css('top', pos);
+
+		// container.animate({
+		// 	top: pos
+		// }, 500, function() {
+		// 	console.log('anim', pos);
+		// });
+		_activePoints(`#section-${screen + 1}`);
+	}
+
+	let _scroll = (e) => {
 		let activePage = sections.filter('.section--active');
 
 		if(!inScroll) {
@@ -30,27 +44,18 @@ let _onePageScroll = (function()  {
 			}
 		}
 
-		let pos		= (-screen * 100) + '%';
-		sections.eq(screen).addClass('section--active').siblings().removeClass('section--active');
-
-		container.css('top', pos);
-
-		_activePoints(`#section-${screen + 1}`);
+		_moveTo();
 
 		setTimeout(function() {
 			inScroll = false;
 		}, 1300);
 	};
 
-	let _scrollClick = function(e) {
+	let _scrollClick = (e) => {
 		let tar = $(e.target);
-		console.log(tar);
+		screen = parseInt(tar.attr('data-section'));
 
-		_activePoints(e.target.hash);
-
-		container.stop().animate({
-			top: - $(e.target.hash).position().top
-		}, 1000);
+		_moveTo();
 	}
 	
 	return {
@@ -59,22 +64,9 @@ let _onePageScroll = (function()  {
 				_scroll(e);
 			});
 
-			$('.nav__link, .points__link, .arrow__link').on('click', (e) => {
+			$('.nav__link, .points__link, #order, #about').on('click', (e) => {
 				e.preventDefault();
 				_scrollClick(e);
-			});
-		}
-	}
-}());
-
-let _menuClick = (function()  {
-	return {
-		init: function() {
-			$('#gamburger').click((e) => {
-				let tar = $(e.target);
-				
-				tar.toggleClass('btn-menu--open');
-				$('.nav').toggleClass('nav--active');
 			});
 		}
 	}
@@ -121,6 +113,19 @@ let _accordClick = (function() {
 
 			$('.menu__link').click(e => {
 				_showMenu(e);
+			});
+		}
+	}
+}());
+
+let _menuClick = (function()  {
+	return {
+		init: function() {
+			$('#gamburger').click((e) => {
+				let tar = $(e.target);
+				
+				tar.toggleClass('btn-menu--open');
+				$('.nav').toggleClass('nav--active');
 			});
 		}
 	}

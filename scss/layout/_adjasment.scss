@@ -141,6 +141,7 @@
 	width: rem(30px);
 	height: rem(14px);
 	fill: $white;
+	pointer-events: none;
 
 	&--prev {
 		transform: rotate(90deg);
