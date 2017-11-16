@@ -241,11 +241,12 @@
 	@include tablets {
 		position: fixed;
 		display: block;
-		top: 0;
+		top: -100%;
 		left: 0;
 		width: 100vw;
 		height: 100vh;
 		z-index: 11;
+		@include transitio();
 	
 		&:before, &:after {
 			content: "";
@@ -295,6 +296,8 @@
 		}
 
 		&--active {
+			top: 0;
+
 			.nav__list {
 				top: 0;
 				opacity: 1;
@@ -308,26 +311,26 @@
 }
 
 .btn-menu {
-	width: rem(24px);
-	height: rem(22px);
+	width: 24px;
+	height: 22px;
 	cursor: pointer;
 	display: none;
 	margin-left: rem(30px);
 	z-index: 11;
     position: relative;
     transform: rotate(0deg);
-    transition: .5s ease-in-out;
+    @include transitio();
     cursor: pointer;
 
 	@include tablets {
 		display: block;
-		margin-left: rem(32px);
+		margin-left: 32px;
 	}
 
 	&__line {
 		display: block;
 		position: absolute;
-		height: rem(4px);
+		height: 4px;
 		width: 100%;
 		background-color: $white;
 		opacity: 1;
@@ -336,18 +339,18 @@
 		pointer-events: none;
 		will-change: transform;
 		left: 0;
-		border-radius: rem(2px);
+		border-radius: 2px;
 
 		&:nth-child(1) {
 			top: 0;
 		}
 		  
 		&:nth-child(2) {
-			top: rem(9px);
+			top: 9px;
 		}
 		  
 		&:nth-child(3) {
-			top: rem(18px);
+			top: 18px;
 		}
 	}
 

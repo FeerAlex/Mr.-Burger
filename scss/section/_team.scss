@@ -38,11 +38,6 @@
 	}
 
 	&__item {
-		margin-bottom: rem(25px);
-
-		@include phones {
-			margin-bottom: rem(29px);
-		}
 
 		&--active {
 			.team__link {
@@ -50,14 +45,6 @@
 
 				&:before {
 					transform: scaleY(-1);
-				}
-			}
-			.team__inner {
-				display: flex;
-				
-				@include tablets {
-					flex-direction: column;
-					align-items: center;
 				}
 			}
 		}
@@ -76,9 +63,11 @@
 		position: relative;
 		display: inline-flex;
 		align-items: center;
+		margin: rem(12px) 0;
 
 		@include tablets {
 			font-size: rem(25px);
+			// margin-bottom: rem(5px);
 		}
 
 		&:before {
@@ -94,11 +83,17 @@
 	}
 
 	&__inner {
-		display: none;
-		padding: rem(12px) 0 rem(10px) 0;
+		overflow: hidden;
+		height: 0;
+		@include transitio();
+	}
+
+	&__desc {
+		display: flex;
 
 		@include tablets {
-			padding-bottom: rem(5px);
+			flex-direction: column;
+			align-items: center;
 		}
 
 		@include phones {

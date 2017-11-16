@@ -36,14 +36,17 @@
 
 		&--active {
 
-			.menu__text {
-				display: block;
-			}
-
 			.menu__link {
 				color: $yellow;
 			}
 		}
+	}
+
+	&__desc {
+		width: 0;
+		overflow: hidden;
+		height: 100%;
+		@include transitio();
 	}
 
 	&__text {
@@ -52,8 +55,8 @@
 		color: $white;
 		line-height: rem(24px);
 		padding: rem(60px) rem(30px);
-		width: rem(540px);
-		display: none;
+		width: 100%;
+		height: 100%;
 		background-color: rgba($gray, .93);
 	}
 

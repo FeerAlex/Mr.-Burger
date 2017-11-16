@@ -5,11 +5,12 @@ section.section.team#section-4
 			- var team = ['дэниэл редклиф', 'ричард джеймс', 'джейк финн', 'николай иванов']
 			ul.team__list
 				each item, i in team
-					li(class="team__item" + ((i == 1) ? " team__item--active" : ""))
+					li.team__item
 						a(href="#").team__link= item
 						.team__inner
-							.team__inner-photo
-								img(src="img/face.jpg").team__inner-img
-							.team__inner-text
-								span.team__inner-post Оператор
-								p.team__inner-detailed С радостью поможет подобрать идеальный бургер и оформить заказ.
+							.team__desc
+								.team__desc-photo
+									img(src="img/face.jpg").team__desc-img
+								.team__desc-text
+									span.team__desc-post Оператор
+									p.team__desc-detailed С радостью поможет подобрать идеальный бургер и оформить заказ.
