@@ -183,30 +183,38 @@ let _carousel = (function()  {
 }());
 
 let _reviewsPopup = (function()  {
+	let section = $('.section');
 	let popup = $('.reviews-popup');
 
 	let _popupShow = (e) => {
-		let tar = $(e.target);
+		let tar = $(e.target),
+			section = tar.closest('section'),
+			popup = section.find('.popup');
 
-		popup.addClass('reviews-popup--show');
-		console.log('popup show');
+		popup.addClass('popup--show');
 	}
 
 	let _popupClose = (e) => {
-		popup.removeClass('reviews-popup--show');
+		let tar = $(e.target),
+			section = tar.closest('section'),
+			popup = section.find('.popup');
+
+			console.log(tar);
+		
+		popup.removeClass('popup--show');
 	}
 
 	return {
 		init: function() {
-			$('.reviews__btn').click((e) => {
+			$('.reviews__btn, .form__submit').click((e) => {
 				e.preventDefault();
 				_popupShow(e);
 			});
 
-			$('.reviews-popup__close-icon, .reviews-popup').click((e) => {
+			$('.popup__close-icon, .popup').click((e) => {
 				e.preventDefault();
 				_popupClose(e);
-			})
+			});
 		}
 	}
 }());
