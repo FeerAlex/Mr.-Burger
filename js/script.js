@@ -182,6 +182,35 @@ let _carousel = (function()  {
 	}
 }());
 
+let _reviewsPopup = (function()  {
+	let popup = $('.reviews-popup');
+
+	let _popupShow = (e) => {
+		let tar = $(e.target);
+
+		popup.addClass('reviews-popup--show');
+		console.log('popup show');
+	}
+
+	let _popupClose = (e) => {
+		popup.removeClass('reviews-popup--show');
+	}
+
+	return {
+		init: function() {
+			$('.reviews__btn').click((e) => {
+				e.preventDefault();
+				_popupShow(e);
+			});
+
+			$('.reviews-popup__close-icon, .reviews-popup').click((e) => {
+				e.preventDefault();
+				_popupClose(e);
+			})
+		}
+	}
+}());
+
 $(document).ready(() => {
 	
 	_onePageScroll.init();
@@ -191,4 +220,6 @@ $(document).ready(() => {
 	_accordClick.init();
 
 	_carousel.init();
+
+	_reviewsPopup.init();
 });
