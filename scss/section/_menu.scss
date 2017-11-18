@@ -28,6 +28,7 @@
 	&__list {
 		height: 100%;
 		display: flex;
+		position: relative;
 	}
 
 	&__item {
@@ -84,7 +85,7 @@
 			width: rem(91.5px);
 		}
 
-	    @for $i from 1 to 3 {
+	    @for $i from 1 to 4 {
 		  &--#{$i} {
 		  	background-image: url('../img/menu/menu-#{$i}.jpg');
 		  }
