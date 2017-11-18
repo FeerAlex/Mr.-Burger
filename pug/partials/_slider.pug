@@ -1,0 +1,66 @@
+- var n = 0
+ul.carousel__list
+    while n < 3
+        li.carousel__item
+            .container
+                .slider
+                    .slider__photo
+                        .slider__structure
+                            .structure
+                                svg.structure__svg
+                                        use(xlink:href="img/sprite.svg#burger")
+                                .structure__text состав
+                                .structure__table
+                                    table.table
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--beef
+                                                    use(xlink:href="img/sprite.svg#beef")
+                                            td.table__td.table__td--name Говядина
+                                            td.table__td.table__td--weight 300г
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--buns
+                                                    use(xlink:href="img/sprite.svg#buns")
+                                            td.table__td.table__td--name Булочки
+                                            td.table__td.table__td--weight 100г
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--salad
+                                                    use(xlink:href="img/sprite.svg#salad")
+                                            td.table__td.table__td--name Зелень
+                                            td.table__td.table__td--weight 70г
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--sauce
+                                                    use(xlink:href="img/sprite.svg#sauce")
+                                            td.table__td.table__td--name Соус
+                                            td.table__td.table__td--weight 150г
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--cucumber
+                                                    use(xlink:href="img/sprite.svg#cucumber")
+                                            td.table__td.table__td--name Овощи
+                                            td.table__td.table__td--weight 200г
+                                        tr.table__tr
+                                            td.table__td.table__td--img
+                                                svg.table__td-svg.table__td-svg--cheese
+                                                    use(xlink:href="img/sprite.svg#cheese")
+                                            td.table__td.table__td--name Сыр
+                                            td.table__td.table__td--weight 80г
+                        .slider__kilo
+                            .kilo
+                                svg.kilo__svg
+                                    use(xlink:href="img/sprite.svg#kkal")
+                                .kilo__value 1200
+                                .kilo__text ккал
+                        img(src="img/burgers.png").slider__img
+                    .slider__desc
+                        h2.slider__title.section__title.section__title--white dark beef burger
+                        .slider__text Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса чураско.
+                        .slider__pay
+                            .slider__price
+                                span.slider__price-value 500
+                                span.slider__price-text рублей
+                            button.slider__btn.btn.btn--orange заказать
+                            - n++

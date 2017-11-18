@@ -279,9 +279,6 @@
 			height: 100vh;
 			width: 100vw;
 			z-index: 12;
-			transition-delay: 1s;
-			@include transitio(opacity);
-			
 		}
 
 		&__item {
@@ -304,6 +301,8 @@
 
 			.nav__list {
 				top: 0;
+				@include transitio(opacity);
+				transition-delay: .5s;
 				opacity: 1;
 			}
 

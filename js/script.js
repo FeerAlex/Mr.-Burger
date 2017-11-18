@@ -19,11 +19,6 @@ let _onePageScroll = (function()  {
 		sections.eq(screen).addClass('section--active').siblings().removeClass('section--active');
 		container.css('top', pos);
 
-		// container.animate({
-		// 	top: pos
-		// }, 500, function() {
-		// 	console.log('anim', pos);
-		// });
 		_activePoints(`#section-${screen + 1}`);
 	}
 
@@ -131,6 +126,62 @@ let _menuClick = (function()  {
 	}
 }());
 
+let _carousel = (function()  {
+	let container = $('.carousel__list'),
+		slides = $('.carousel__item'),
+		slide = 0,
+		inScroll = false;
+
+	$('.carousel__item:first-child').addClass('carousel__item--active');
+
+	let _moveTo = () => {
+		let pos		= (-slide * 100) + '%';
+		
+		slides.eq(slide).addClass('carousel__item--active').siblings().removeClass('carousel__item--active');
+		container.css('left', pos);
+	}
+	
+	let _slide = (e) => {
+		let tar = $(e.target);
+		let direct = tar.attr('data-contrl');
+
+		let activeSlide = slides.filter('.carousel__item--active');
+		
+		if(!inScroll) {
+			inScroll = true;
+
+			if (direct < 0) {
+				if(activeSlide.prev().length) {
+					slide--;
+				} else {
+					slide = slides.length - 1;
+				}
+			} else {
+				if(activeSlide.next().length) {
+					slide++;
+				} else {
+					slide = 0;
+				}
+			}
+		}
+
+		_moveTo();
+
+		setTimeout(function() {
+			inScroll = false;
+		}, 1300);
+	}
+
+	return {
+		init: function() {
+			$('.carousel__controls').click((e) => {
+				e.preventDefault();
+				_slide(e);
+			});
+		}
+	}
+}());
+
 $(document).ready(() => {
 	
 	_onePageScroll.init();
@@ -138,4 +189,6 @@ $(document).ready(() => {
 	_menuClick.init();
 
 	_accordClick.init();
+
+	_carousel.init();
 });
