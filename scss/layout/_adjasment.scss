@@ -217,3 +217,42 @@
 		}
 	}
 }
+
+.qtip {
+	position: absolute;
+	background-color: $white;
+	border: rem(1px) solid $red;
+	border-radius: rem(3px);
+    text-align: left;
+	white-space: nowrap;
+	transform: translateX(-50%);
+	font-size: rem(10px);
+	box-shadow: 4px 4px 5px 0px rgba($black, .2);
+	bottom: rem(-33px);
+	z-index: 1;
+
+	&__content {
+		position: relative;
+		padding: rem(5px) rem(9px);
+
+		&:after, &:before {
+			content: '';
+			border: solid transparent;
+			position: absolute;
+			left: 50%;
+			margin-left: -4px;
+			bottom: 100%;
+			width: 0;
+		}
+		&:before {
+			border-bottom-color: $red;
+			border-width: rem(6px);
+			margin-left: rem(-5px);
+		}
+		
+		&:after {
+			border-bottom-color: $white;
+			border-width: rem(5px);
+		}
+	}
+}

@@ -183,30 +183,22 @@ let _carousel = (function()  {
 }());
 
 let _reviewsPopup = (function()  {
-	let section = $('.section');
-	let popup = $('.reviews-popup');
 
 	let _popupShow = (e) => {
-		let tar = $(e.target),
-			section = tar.closest('section'),
-			popup = section.find('.popup');
-
-		popup.addClass('popup--show');
+		let tar = $(e.target);
+		
+		tar.closest('section').find('.popup').addClass('popup--show');
 	}
 
 	let _popupClose = (e) => {
-		let tar = $(e.target),
-			section = tar.closest('section'),
-			popup = section.find('.popup');
-
-			console.log(tar);
+		let tar = $(e.target);
 		
-		popup.removeClass('popup--show');
+		tar.closest('section').find('.popup').removeClass('popup--show');
 	}
 
 	return {
 		init: function() {
-			$('.reviews__btn, .form__submit').click((e) => {
+			$('.reviews__btn').click((e) => {
 				e.preventDefault();
 				_popupShow(e);
 			});
@@ -215,6 +207,107 @@ let _reviewsPopup = (function()  {
 				e.preventDefault();
 				_popupClose(e);
 			});
+		}
+	}
+}());
+
+let _submitForm = (function()  {
+
+	let _createQtip = (element) => {
+		let qtip 		= document.createElement('div'),
+			qtipCont	= document.createElement('div'),
+			posLeft 	= $(element).outerWidth(true) / 2,
+			label 		= element.closest('label');
+		
+		qtip.classList.add('qtip');
+		qtipCont.classList.add('qtip__content');
+		qtipCont.innerHTML = 'Заполните поле!';
+		qtip.appendChild(qtipCont);
+		qtip.style.left = posLeft + 'px';
+
+		label.appendChild(qtip);
+	};
+
+	let _validateForm = (form) => {
+		let inputs = form.find('input[data-required]'),
+			valid = true;
+		
+		$.each(inputs, (index, v) => {
+			let input = $(v),
+				val = input.val();
+
+			if(val.length === 0) {
+				input.addClass('form__label-input--error');
+				_createQtip(input[0]);
+				valid = false;
+			}
+		});
+
+		return valid;
+	};
+
+	let _removeError = (e) => {
+		let tar = $(e.target);
+
+		tar.closest('label').find('.qtip').remove();
+		tar.removeClass('form__label-input--error');
+	};
+
+	let _clearForm = (e) => {
+		let form = $(e.target);
+
+		form.find('.qtip').remove();
+		form.find('.form__label-input--error').removeClass('form__label-input--error');
+	};
+
+	let _ajaxForm = (form, url) => {
+		if (!_validateForm(form)) return false;
+
+		let data = form.serialize();
+
+		var result = $.ajax({
+			url: url,
+			type: 'POST',
+			dataType: 'json',
+			data: data,
+		}).fail(function(ans) {
+			let popup = form.closest('section').find('.popup');
+			
+			popup.addClass('popup--show popup--error').find('.popup__text').text('Не удалось отправить заявку');
+		});
+
+		return result;
+	}
+
+	let _addRequest = (e) => {
+		e.preventDefault();
+
+		let form = $(e.target),
+			url = '../add_request.php',
+			serverAnswer = _ajaxForm(form, url);
+		
+		if(serverAnswer) {
+			serverAnswer.done(function(ans) {
+				let popup = form.closest('section').find('.popup');
+
+				if(ans.status === 'OK') {
+					popup.removeClass('popup--error')
+					popup.find('.popup__text').text(ans.text);
+					popup.addClass('popup--show');
+				}else {
+					popup.find('.popup__text').text(ans.text);
+					popup.addClass('popup--show popup--error');
+				}
+			});
+		}
+	}
+
+	return {
+		init: function() {
+			$('#add_request').on('submit', _addRequest); // Добавить проект
+
+			$('form').on('click', '.form__label-input--error', _removeError);
+			$('form').on('reset', _clearForm);
 		}
 	}
 }());
@@ -230,4 +323,6 @@ $(document).ready(() => {
 	_carousel.init();
 
 	_reviewsPopup.init();
+
+	_submitForm.init();
 });

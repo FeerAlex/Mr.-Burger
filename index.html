@@ -512,34 +512,34 @@
           <div class="container order__container">
             <h2 class="order__title section__title section__title--yellow">Закажите доставку</h2>
             <div class="order__form form">
-              <form class="form__tag">
+              <form class="form__tag" id="add_request">
                 <div class="form__content">
                   <div class="form__col">
                     <div class="form__row">
                       <label class="form__label"><span class="form__label-text">Имя</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" data-required name="name">
                       </label>
                       <label class="form__label"><span class="form__label-text">Телефон</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" data-required phone="phone">
                       </label>
                     </div>
                     <div class="form__row">
                       <label class="form__label"><span class="form__label-text">Улица</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" name="street">
                       </label>
                     </div>
                     <div class="form__row">
                       <label class="form__label"><span class="form__label-text">Дом</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" name="house">
                       </label>
                       <label class="form__label"><span class="form__label-text">Корпус</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" name="housing">
                       </label>
                       <label class="form__label"><span class="form__label-text">Квартира</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" name="flat">
                       </label>
                       <label class="form__label"><span class="form__label-text">Этаж</span>
-                        <input class="form__label-input">
+                        <input class="form__label-input" name="flat">
                       </label>
                     </div>
                   </div>
@@ -555,13 +555,13 @@
                         <div class="form__controls-circle"></div><span class="form__controls-text">Потребуется сдача</span>
                       </label>
                       <label class="form__controls">
-                        <input class="form__controls-radio" type="radio" name="pay">
+                        <input class="form__controls-radio" type="radio" name="pay" checked>
                         <div class="form__controls-circle"></div><span class="form__controls-text">Оплата по карте</span>
                       </label>
                     </div>
                     <div class="form__row form__row_controls">
                       <label class="form__controls">
-                        <input class="form__controls-checkbox" type="checkbox" name="call">
+                        <input class="form__controls-checkbox" type="checkbox" name="call" checked>
                         <div class="form__controls-square"></div><span class="form__controls-text">Не перезванивать</span>
                       </label>
                     </div>

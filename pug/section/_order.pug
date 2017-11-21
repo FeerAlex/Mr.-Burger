@@ -2,33 +2,33 @@ section.section.order#section-7
     .container.order__container
         h2.order__title.section__title.section__title--yellow Закажите доставку
         .order__form.form
-            form.form__tag
+            form.form__tag#add_request
                 .form__content
                     .form__col
                         .form__row
                             label.form__label
                                 span.form__label-text Имя
-                                input.form__label-input
+                                input(data-required name="name").form__label-input
                             label.form__label
                                 span.form__label-text Телефон
-                                input.form__label-input
+                                input(data-required name="phone").form__label-input
                         .form__row
                             label.form__label
                                 span.form__label-text Улица
-                                input.form__label-input
+                                input(name="street").form__label-input
                         .form__row
                             label.form__label
                                 span.form__label-text Дом
-                                input.form__label-input
+                                input(name="house").form__label-input
                             label.form__label
                                 span.form__label-text Корпус
-                                input.form__label-input
+                                input(name="housing").form__label-input
                             label.form__label
                                 span.form__label-text Квартира
-                                input.form__label-input
+                                input(name="flat").form__label-input
                             label.form__label
                                 span.form__label-text Этаж
-                                input.form__label-input
+                                input(name="flat").form__label-input
                     .form__col
                         .form__row
                             label.form__label
@@ -40,12 +40,12 @@ section.section.order#section-7
                                 .form__controls-circle
                                 span.form__controls-text Потребуется сдача
                             label.form__controls
-                                input(type="radio" name="pay").form__controls-radio
+                                input(type="radio" name="pay" checked).form__controls-radio
                                 .form__controls-circle
                                 span.form__controls-text Оплата по карте
                         .form__row.form__row_controls
                             label.form__controls
-                                input(type="checkbox" name="call").form__controls-checkbox
+                                input(type="checkbox" name="call" checked).form__controls-checkbox
                                 .form__controls-square
                                 span.form__controls-text Не перезванивать
                         .form__row.form__row_controls
