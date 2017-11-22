@@ -6,6 +6,10 @@ let _onePageScroll = (function()  {
 		inScroll	= false,
 		posY1		= 0,
 		posY2		= 0;
+	
+	var startPoint = {};
+	var nowPoint;
+	var ldelay;
 
 	$('.section:first-child').addClass('section--active');
 	$('.points__item:first-child .points__link').addClass('points__link--active');
@@ -55,29 +59,17 @@ let _onePageScroll = (function()  {
 		_moveTo();
 	}
 
-	let _touchStart = function(e) {
-		let tar = window.event;
-		posY1 = tar.changedTouches[0].pageY;
-	}
-
-	let _touchEnd = function(e) {
-		let tar = window.event;
-		posY2 = tar.changedTouches[0].pageY;
-
+	let _touchSwipe = function(direction) {
 		let activePage = sections.filter('.section--active');
 		
 		if(!inScroll) {
 			inScroll = true;
 
-			if (posY2 - posY1 > 10) {
-				if(activePage.prev().length) {
-					screen--;
-				}
+			if (direction === "down" && activePage.prev().length) {
+				screen--;
 			} 
-			if (posY2 - posY1 < -10) {
-				if(activePage.next().length) {
-					screen++;
-				}
+			if (direction === "up" && activePage.next().length) {
+				screen++;
 			}
 		}
 
@@ -90,16 +82,16 @@ let _onePageScroll = (function()  {
 	
 	return {
 		init: function() {
+			if (document.body.clientWidth <= '768') {
+				$(window).swipe({
+					swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+						_touchSwipe(direction);
+					}
+				});
+			}
+
 			$('body').on('mousewheel', function(e) {
 				_scroll(e);
-			});
-
-			$('body').on('touchstart', function(e) {
-				_touchStart(e);
-			});
-
-			$('body').on('touchend', function(e) {
-				_touchEnd(e);
 			});
 
 			$('.nav__link, .points__link, #order, #about').on('click', function(e) {
