@@ -308,7 +308,11 @@ let _submitForm = (function()  {
 		}).fail(function(ans) {
 			let popup = form.closest('section').find('.popup');
 
-			popup.addClass('popup--show popup--error').find('.popup__text').text('Не удалось отправить заявку!');
+			popup.addClass('popup--show')
+				.find('.popup__block')
+				.addClass('popup__block--error')
+				.find('.popup__text')
+				.text('Не удалось отправить заявку!');
 		});
 
 		return result;
@@ -326,12 +330,17 @@ let _submitForm = (function()  {
 				let popup = form.closest('section').find('.popup');
 
 				if(ans.status === 'OK') {
-					popup.removeClass('popup--error')
-					popup.find('.popup__text').text(ans.text);
-					popup.addClass('popup--show');
+					popup.addClass('popup--show')
+						.find('.popup__block')
+						.removeClass('popup__block--error')
+						.find('.popup__text')
+						.text(ans.text);
 				}else {
-					popup.find('.popup__text').text(ans.text);
-					popup.addClass('popup--show popup--error');
+					popup.addClass('popup--show')
+						.find('.popup__block')
+						.addClass('popup__block--error')
+						.find('.popup__text')
+						.text(ans.text);
 				}
 			});
 		}

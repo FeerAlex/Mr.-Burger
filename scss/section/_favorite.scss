@@ -21,7 +21,6 @@
 
 	&__list {
 		display: flex;
-		width: 100%;
 
 		@include phones {
 			flex-direction: column;
