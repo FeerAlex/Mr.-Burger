@@ -69,11 +69,12 @@ let _onePageScroll = (function()  {
 		if(!inScroll) {
 			inScroll = true;
 
-			if (posY2 - posY1 > 0) {
+			if (posY2 - posY1 > 10) {
 				if(activePage.prev().length) {
 					screen--;
 				}
-			} else {
+			} 
+			if (posY2 - posY1 < -10) {
 				if(activePage.next().length) {
 					screen++;
 				}
