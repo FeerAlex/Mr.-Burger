@@ -3,26 +3,28 @@ let _onePageScroll = (function()  {
 		points		= $('.points__link'),
 		sections	= $('.section'),
 		screen		= 0,
-		inScroll	= false;
+		inScroll	= false,
+		posY1		= 0,
+		posY2		= 0;
 
 	$('.section:first-child').addClass('section--active');
 	$('.points__item:first-child .points__link').addClass('points__link--active');
 
-	let _activePoints = (active) => {
+	let _activePoints = function(active) {
 		points.removeClass('points__link--active');
-		points.filter(`[href^='${active}']`).addClass('points__link--active');
+		points.filter("[href='" + active + "']").addClass('points__link--active');
 	}
 
-	let _moveTo = () => {
+	let _moveTo = function() {
 		let pos		= (-screen * 100) + '%';
 
 		sections.eq(screen).addClass('section--active').siblings().removeClass('section--active');
 		container.css('top', pos);
 
-		_activePoints(`#section-${screen + 1}`);
+		_activePoints("#section-" + (screen + 1));
 	}
 
-	let _scroll = (e) => {
+	let _scroll = function(e) {
 		let activePage = sections.filter('.section--active');
 
 		if(!inScroll) {
@@ -46,20 +48,60 @@ let _onePageScroll = (function()  {
 		}, 1300);
 	};
 
-	let _scrollClick = (e) => {
+	let _scrollClick = function(e) {
 		let tar = $(e.target);
 		screen = parseInt(tar.attr('data-section'));
 
 		_moveTo();
 	}
+
+	let _touchStart = function(e) {
+		let tar = window.event;
+		posY1 = tar.changedTouches[0].pageY;
+	}
+
+	let _touchEnd = function(e) {
+		let tar = window.event;
+		posY2 = tar.changedTouches[0].pageY;
+
+		let activePage = sections.filter('.section--active');
+		
+		if(!inScroll) {
+			inScroll = true;
+
+			if (posY2 - posY1 > 0) {
+				if(activePage.prev().length) {
+					screen--;
+				}
+			} else {
+				if(activePage.next().length) {
+					screen++;
+				}
+			}
+		}
+
+		_moveTo();
+
+		setTimeout(function() {
+			inScroll = false;
+		}, 1300);
+	}
 	
 	return {
 		init: function() {
-			$('body').on('mousewheel', (e) => {
+			$('body').on('mousewheel', function(e) {
 				_scroll(e);
 			});
 
-			$('.nav__link, .points__link, #order, #about').on('click', (e) => {
+			$('body').on('touchstart', function(e) {
+				_touchStart(e);
+			});
+
+			$('body').on('touchend', function(e) {
+				_touchEnd(e);
+			});
+
+			$('.nav__link, .points__link, #order, #about').on('click', function(e) {
 				e.preventDefault();
 				_scrollClick(e);
 			});
@@ -68,7 +110,7 @@ let _onePageScroll = (function()  {
 }());
 
 let _accordClick = (function() {
-	let _showTeam = (e) => {
+	let _showTeam = function(e) {
 		e.preventDefault();
 		let tar = $(e.target),
 			item = tar.closest('.team__item'),
@@ -84,7 +126,7 @@ let _accordClick = (function() {
 		}
 	}
 
-	let _showMenu = (e) => {
+	let _showMenu = function(e) {
 		e.preventDefault();
 		let tar = $(e.target),
 			item = tar.closest('.menu__item'),
@@ -102,11 +144,11 @@ let _accordClick = (function() {
 
 	return {
 		init: function() {
-			$('.team__link').click(e => {
+			$('.team__link').click(function(e) {
 				_showTeam(e);
 			});
 
-			$('.menu__link').click(e => {
+			$('.menu__link').click(function(e) {
 				_showMenu(e);
 			});
 		}
@@ -116,7 +158,7 @@ let _accordClick = (function() {
 let _menuClick = (function()  {
 	return {
 		init: function() {
-			$('#gamburger').click((e) => {
+			$('#gamburger').click(function(e) {
 				let tar = $(e.target);
 				
 				tar.toggleClass('btn-menu--open');
@@ -134,14 +176,14 @@ let _carousel = (function()  {
 
 	$('.carousel__item:first-child').addClass('carousel__item--active');
 
-	let _moveTo = () => {
+	let _moveTo = function() {
 		let pos		= (-slide * 100) + '%';
 		
 		slides.eq(slide).addClass('carousel__item--active').siblings().removeClass('carousel__item--active');
 		container.css('left', pos);
 	}
 	
-	let _slide = (e) => {
+	let _slide = function(e) {
 		let tar = $(e.target);
 		let direct = tar.attr('data-contrl');
 
@@ -174,7 +216,7 @@ let _carousel = (function()  {
 
 	return {
 		init: function() {
-			$('.carousel__controls').click((e) => {
+			$('.carousel__controls').click(function(e) {
 				e.preventDefault();
 				_slide(e);
 			});
@@ -184,13 +226,13 @@ let _carousel = (function()  {
 
 let _reviewsPopup = (function()  {
 
-	let _popupShow = (e) => {
+	let _popupShow = function(e) {
 		let tar = $(e.target);
 		
 		tar.closest('section').find('.popup').addClass('popup--show');
 	}
 
-	let _popupClose = (e) => {
+	let _popupClose = function(e) {
 		let tar = $(e.target);
 		
 		tar.closest('section').find('.popup').removeClass('popup--show');
@@ -198,12 +240,12 @@ let _reviewsPopup = (function()  {
 
 	return {
 		init: function() {
-			$('.reviews__btn').click((e) => {
+			$('.reviews__btn').click(function(e) {
 				e.preventDefault();
 				_popupShow(e);
 			});
 
-			$('.popup__close-icon, .popup').click((e) => {
+			$('.popup__close-icon, .popup').click(function(e) {
 				e.preventDefault();
 				_popupClose(e);
 			});
@@ -213,7 +255,7 @@ let _reviewsPopup = (function()  {
 
 let _submitForm = (function()  {
 
-	let _createQtip = (element) => {
+	let _createQtip = function(element) {
 		let qtip 		= document.createElement('div'),
 			qtipCont	= document.createElement('div'),
 			posLeft 	= $(element).outerWidth(true) / 2,
@@ -228,11 +270,11 @@ let _submitForm = (function()  {
 		label.appendChild(qtip);
 	};
 
-	let _validateForm = (form) => {
+	let _validateForm = function(form) {
 		let inputs = form.find('input[data-required]'),
 			valid = true;
 		
-		$.each(inputs, (index, v) => {
+		$.each(inputs, function(index, v) {
 			let input = $(v),
 				val = input.val();
 
@@ -246,21 +288,21 @@ let _submitForm = (function()  {
 		return valid;
 	};
 
-	let _removeError = (e) => {
+	let _removeError = function(e) {
 		let tar = $(e.target);
 
 		tar.closest('label').find('.qtip').remove();
 		tar.removeClass('form__label-input--error');
 	};
 
-	let _clearForm = (e) => {
+	let _clearForm = function(e) {
 		let form = $(e.target);
 
 		form.find('.qtip').remove();
 		form.find('.form__label-input--error').removeClass('form__label-input--error');
 	};
 
-	let _ajaxForm = (form, url) => {
+	let _ajaxForm = function(form, url) {
 		if (!_validateForm(form)) return false;
 
 		let data = form.serialize();
@@ -272,14 +314,14 @@ let _submitForm = (function()  {
 			data: data,
 		}).fail(function(ans) {
 			let popup = form.closest('section').find('.popup');
-			
-			popup.addClass('popup--show popup--error').find('.popup__text').text('Не удалось отправить заявку');
+
+			popup.addClass('popup--show popup--error').find('.popup__text').text('Не удалось отправить заявку!');
 		});
 
 		return result;
 	}
 
-	let _addRequest = (e) => {
+	let _addRequest = function(e) {
 		e.preventDefault();
 
 		let form = $(e.target),
@@ -312,7 +354,7 @@ let _submitForm = (function()  {
 	}
 }());
 
-$(document).ready(() => {
+$(document).ready(function() {
 	
 	_onePageScroll.init();
 
