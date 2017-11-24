@@ -322,7 +322,7 @@ let _submitForm = (function()  {
 		e.preventDefault();
 
 		let form = $(e.target),
-			url = '../add_request.php',
+			url = 'add_request.php',
 			serverAnswer = _ajaxForm(form, url);
 		
 		if(serverAnswer) {

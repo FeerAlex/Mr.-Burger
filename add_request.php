@@ -1,18 +1,48 @@
 <?php 
-	$name = $_POST['name'];
-	$phone = $_POST['phone'];
-	$street = $_POST['street'];
-	$data = array();
-	
-	
+	$name		= $_POST['name'];
+	$phone		= $_POST['phone'];
+	$pay		= $_POST['pay'];
+	$message	= $_POST['message'];
+	$disturb	= $_POST['call'];
+	$disturb	= isset($disturb) ? 'НЕТ' : 'ДА';
+	$data		= array();
+
 	if ($name === '' || $phone === '') {
 		$data['status'] = 'error';
-		$data['text'] = 'Ошибка! Заполнены не все поля!';
+		$data['text'] = 'Заполните имя и телефон!';
 	} else {
-		$data['status'] = 'OK';
-		$data['text'] = 'Ура! Заявка отправлена!';
+		$mail_message = '
+		<html>
+			<head>
+				<title>Заявка</title>
+			</head>
+			<body>
+				<h2>Заказ</h2>
+				<ul>
+					<li>Имя: ' . $name . '</li>
+					<li>Телефон: ' . $phone . '</li>
+					<li>Способ оплаты: ' . $pay . '</li>
+					<li>Комментарии к заказу: ' . $message . '</li>
+					<li>Нужно ли перезванивать клиенту: ' . $disturb . '</li>
+				</ul>
+			</body>
+		</html>    
+		';
+
+		$headers = "From: Администратор бургеров <pertik@list.ru>\r\n".
+		"MIME-Version: 1.0" . "\r\n" .
+		"Content-type: text/html; charset=UTF-8" . "\r\n";
+	
+		$mail = mail('pertik@list.ru', 'Заказ', $mail_message, $headers);
+
+		if($mail) {
+			$data['status'] = 'OK';
+			$data['text'] = 'Заявка отправлена!';
+		} else {
+			$data['status'] = 'error';
+			$data['text'] = 'Произошла ошибка при отправке!';
+		}
 	}
-	header("Content-Type: application/json");
+
 	echo json_encode($data);
-	exit;
  ?>

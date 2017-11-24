@@ -28,24 +28,24 @@ section.section.order#section-7
                                 input(name="flat").form__label-input
                             label.form__label
                                 span.form__label-text Этаж
-                                input(name="flat").form__label-input
+                                input(name="floor").form__label-input
                     .form__col
                         .form__row
                             label.form__label
                                 span.form__label-text Комментарий
-                                textarea.form__label-input.form__label-input--area
+                                textarea(name="message").form__label-input.form__label-input--area
                         .form__row.form__row_controls
                             label.form__controls
-                                input(type="radio" name="pay").form__controls-radio
+                                input(type="radio" name="pay" value="Потребуется сдача").form__controls-radio
                                 .form__controls-circle
                                 span.form__controls-text Потребуется сдача
                             label.form__controls
-                                input(type="radio" name="pay" checked).form__controls-radio
+                                input(type="radio" name="pay" value="Оплата по карте" checked).form__controls-radio
                                 .form__controls-circle
                                 span.form__controls-text Оплата по карте
                         .form__row.form__row_controls
                             label.form__controls
-                                input(type="checkbox" name="call" checked).form__controls-checkbox
+                                input(type="checkbox" name="call" value="1" checked).form__controls-checkbox
                                 .form__controls-square
                                 span.form__controls-text Не перезванивать
                         .form__row.form__row_controls
