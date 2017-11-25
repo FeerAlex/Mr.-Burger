@@ -3,13 +3,8 @@
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: cover;
-	display: flex;
-	justify-content: center;
 	align-items: center;
-
-	&__container {
-		align-items: center;
-	}
+	text-align: center;
 
 	&__title {
 		margin-bottom: 10%;

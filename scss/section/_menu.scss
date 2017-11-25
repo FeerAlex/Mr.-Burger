@@ -4,8 +4,6 @@
 	background-position: center;
 	background-size: cover;
 	position: relative;
-	display: flex;
-	justify-content: flex-end;
 
 	&__title {
 		position: absolute;
@@ -26,9 +24,11 @@
 	}
 
 	&__list {
-		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
 		display: flex;
-		position: relative;
 	}
 
 	&__item {
@@ -37,7 +37,7 @@
 
 		&--active {
 
-			.menu__link {
+			.menu__name {
 				color: $yellow;
 			}
 		}
@@ -47,6 +47,7 @@
 		width: 0;
 		overflow: hidden;
 		height: 100%;
+		background-color: rgba($gray, .93);
 		@include transitio();
 	}
 
@@ -54,27 +55,19 @@
 		font-family: 'Ubuntu';
 		font-weight: 300;
 		color: $white;
-		line-height: rem(24px);
+		line-height: 1.5;
 		padding: rem(60px) rem(30px);
 		width: 100%;
-		height: 100%;
-		background-color: rgba($gray, .93);
 	}
 
 	&__link {
 		width: rem(80px);
 		height: 100%;
-		font-size: rem(40px);
-		font-family: 'Gagalin';
-		color: $white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-decoration: none;
-		white-space: nowrap;
-	    background-size: cover;
+		display: block;
+		background-size: cover;
 	    background-repeat: no-repeat;
 		background-position: 50%;
+		text-decoration: none;
 		position: relative;
 
 		@include tablets {
@@ -87,7 +80,7 @@
 
 	    @for $i from 1 to 4 {
 		  &--#{$i} {
-		  	background-image: url('../img/menu/menu-#{$i}.jpg');
+		  	background-image: url('/img/menu/menu-#{$i}.jpg');
 		  }
 		}
 
@@ -101,9 +94,16 @@
 	}
 
 	&__name {
-		display: inline-block;
-	    height: rem(80px);
-	    line-height: rem(80px);
-	    transform: rotate(-90deg);
+		font-size: rem(40px);
+		font-family: 'Gagalin';
+		color: $white;
+		text-align: center;
+		white-space: nowrap;
+		position: absolute;
+		transform: rotate(-90deg) translate(-50%, -50%);
+		transform-origin: 0 0;
+		left: 50%;
+		top: 50%;
+		@include transitio();
 	}
 }

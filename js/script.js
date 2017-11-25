@@ -94,7 +94,7 @@ let _onePageScroll = (function()  {
 				_scroll(e);
 			});
 
-			$('.nav__link, .points__link, #order, #about').on('click', function(e) {
+			$('.nav__link, .points__link, .btn--order, #about').on('click', function(e) {
 				e.preventDefault();
 				_scrollClick(e);
 			});
@@ -227,8 +227,10 @@ let _reviewsPopup = (function()  {
 
 	let _popupClose = function(e) {
 		let tar = $(e.target);
-		
-		tar.closest('section').find('.popup').removeClass('popup--show');
+
+		if(tar.hasClass('popup-close')) {
+			tar.closest('section').find('.popup').removeClass('popup--show');
+		}
 	}
 
 	return {
@@ -356,6 +358,54 @@ let _submitForm = (function()  {
 	}
 }());
 
+let _yandexMap = (function()  {
+
+	let _map = function() {
+
+		let myMap  = new ymaps.Map("map", {
+			center: [59.94463639, 30.31112969], 
+			zoom: 12
+		});
+
+		let marks = new ymaps.GeoObjectCollection({}, {
+			iconLayout: 'default#image',
+			iconImageHref: '/img/map-marker.svg',
+			iconImageSize: [46, 57.727],
+			iconImageOffset: [-22, -57]
+		});
+
+		let mark1 = new ymaps.Placemark([59.932197, 30.321123], {
+			hintContent: 'Mr. Burger',
+			balloonContent: 'Казанская улица, 7'
+		});
+
+		let mark2 = new ymaps.Placemark([59.93497218, 30.27689658], {
+			hintContent: 'Mr. Burger',
+			balloonContent: '13-я линия Васильевского острова, 6-8'
+		});
+
+		let mark3 = new ymaps.Placemark([59.959872, 30.327170], {
+			hintContent: 'Mr. Burger',
+			balloonContent: 'Большая Посадская улица, 18'
+		});
+
+		myMap.behaviors.disable([
+			'drag', 'scrollZoom'
+		]);
+
+		marks.add(mark1).add(mark2).add(mark3);
+
+		myMap.geoObjects.add(marks);
+
+	}
+	
+	return {
+		init: function() {
+			ymaps.ready(_map);
+		}
+	}
+}());
+
 $(document).ready(function() {
 	
 	_onePageScroll.init();
@@ -369,4 +419,6 @@ $(document).ready(function() {
 	_reviewsPopup.init();
 
 	_submitForm.init();
+
+	_yandexMap.init();
 });

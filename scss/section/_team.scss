@@ -1,19 +1,18 @@
 .team {
 	background: url("../img/team.jpg") no-repeat;
 	background-size: cover;
-	display: flex;
 	justify-content: flex-end;
 
 	&__about {
 		background-color: rgba($gray, .93);
 		height: 100%;
-		flex-basis: 48.9%;
+		width: 48.9%;
 		padding: rem(60px) 0 0 rem(80px);
 		display: flex;
 		flex-direction: column;
 
 		@include tablets {
-			flex-basis: 100%;
+			width: 100%;
 			align-items: center;
 			padding: rem(100px) 0 0 0;
 		}
