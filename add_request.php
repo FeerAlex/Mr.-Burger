@@ -4,6 +4,13 @@
 	$pay		= $_POST['pay'];
 	$message	= $_POST['message'];
 	$disturb	= $_POST['call'];
+
+	$street		= $_POST['street'];
+	$house		= $_POST['house'];
+	$housing	= $_POST['housing'];
+	$flat		= $_POST['flat'];
+	$floor		= $_POST['floor'];
+
 	$disturb	= isset($disturb) ? 'НЕТ' : 'ДА';
 	$data		= array();
 
@@ -24,6 +31,14 @@
 					<li>Способ оплаты: ' . $pay . '</li>
 					<li>Комментарии к заказу: ' . $message . '</li>
 					<li>Нужно ли перезванивать клиенту: ' . $disturb . '</li>
+				</ul>
+				<h3>Дополнительные сведения:</h3>
+				<ul>
+					<li>Улица: ' . $street . '</li>
+					<li>Дом: ' . $house . '</li>
+					<li>Корпус: ' . $housing . '</li>
+					<li>Квартира: ' . $flat . '</li>
+					<li>Этаж: ' . $floor . '</li>
 				</ul>
 			</body>
 		</html>    
