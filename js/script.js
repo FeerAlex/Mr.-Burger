@@ -158,7 +158,8 @@ let _clickElement = (function()  {
 
 	let _showStructure = function(e) {
 		let tar = $(e.target),
-			structure = $('.structure');
+			slider = tar.closest('.slider'),
+			structure = slider.find('.structure');
 
 		if(tar.hasClass('structure-close')) {
 			structure.toggleClass('structure--active');
