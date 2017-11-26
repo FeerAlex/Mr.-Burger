@@ -148,14 +148,36 @@ let _accordClick = (function() {
 	}
 }());
 
-let _menuClick = (function()  {
+let _clickElement = (function()  {
+	let _showMenu = function(e) {
+		let tar = $(e.target);
+		
+		tar.toggleClass('btn-menu--open');
+		$('.nav').toggleClass('nav--active');
+	}
+
+	let _showStructure = function(e) {
+		let tar = $(e.target),
+			structure = $('.structure');
+
+		if(tar.hasClass('structure-close')) {
+			structure.toggleClass('structure--active');
+		}
+	}
+
 	return {
 		init: function() {
 			$('#gamburger').click(function(e) {
-				let tar = $(e.target);
+				_showMenu(e);
+			});
+
+			$('.structure-close').on('click', function(e) {
+				e.stopPropagation()
+				e.preventDefault();
 				
-				tar.toggleClass('btn-menu--open');
-				$('.nav').toggleClass('nav--active');
+				if ($(window).width() <= 768) {
+					_showStructure(e);
+				};
 			});
 		}
 	}
@@ -410,7 +432,7 @@ $(document).ready(function() {
 	
 	_onePageScroll.init();
 
-	_menuClick.init();
+	_clickElement.init();
 
 	_accordClick.init();
 

@@ -6,12 +6,13 @@ ul.carousel__list
                 .slider
                     .slider__photo
                         .slider__structure
-                            .structure
+                            .structure.structure-close
                                 svg.structure__svg
                                         use(xlink:href="img/sprite.svg#burger")
                                 .structure__text состав
                                 .structure__table
                                     table.table
+                                        a(href="#").structure__close-icon.close-icon.structure-close
                                         tr.table__tr
                                             td.table__td.table__td--img
                                                 svg.table__td-svg.table__td-svg--beef

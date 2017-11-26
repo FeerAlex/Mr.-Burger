@@ -32,6 +32,7 @@
 		flex-direction: column;
 		justify-content: center;
 		padding-bottom: 20%;
+		position: relative;
 	}
 
 	&__intro {
@@ -49,7 +50,7 @@
 		width: 50%;
 
 		@include tablets {
-			width: 100%;
+			width: auto;
 		}
 	}
 	&__burger {
@@ -120,26 +121,20 @@
 		transform: translateX(-50%);
 		bottom: rem(35px);
 	 	@include transitio();
-	 	animation-duration: 2s;
-	 	animation-name: fade-down;
-	 	animation-iteration-count: infinite;
-
-	 	&:hover {
-	 		transform: scale(1.2);
-	 	}
+	 	animation: fade-down 2s infinite;
 	 }
 }
 
 @keyframes fade-down {
 	0% {
-		transform: translate(0,0);
+		transform: translate(-50%, 0);
 		opacity: 0;
 	}
 	40%, 60% {
 		opacity: 1;
 	}
 	100% {
-		transform: translate(0,rem(10px));
+		transform: translate(-50%, rem(10px));
 		opacity: 0;
 	}
 }
@@ -162,6 +157,7 @@
 		margin: 0 rem(4px) 0 rem(7px);
 		display: flex;
 		align-items: center;
+		position: relative;
 	}
 
 	&__logo {
@@ -246,7 +242,7 @@
 	
 		&:before, &:after {
 			content: "";
-			background: rgba($gray, .99);
+			background: $gray;
 			position: absolute;
 			top: 0;
 			width: 0;
@@ -300,7 +296,7 @@
 			}
 
 			&:before, &:after {
-				width: 50%;
+				width: 51%;
 			}
 		}
 	}

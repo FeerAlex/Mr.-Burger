@@ -87,14 +87,14 @@
         @include tablets {
             line-height: 0.9;
             font-size: rem(76px);
-            margin-bottom: rem(25px);
+            width: 70%;
+            margin: 0 auto rem(25px) auto;
         }
 
         @include phones {
             font-size: rem(57px);
             letter-spacing: rem(-0px);
             line-height: 1.2;
-            width: 70%;
             margin-bottom: rem(18px);
         }
     }
@@ -152,10 +152,10 @@
         margin-left: rem(30px);
 
         @include tablets {
-            margin-left: 0;
             letter-spacing: 0.45px;
             text-align: center;
-            align-items: center;
+            width: 95%;
+            margin: 0 auto;
         }
     }
 
@@ -286,6 +286,7 @@
         fill: $white;
         width: rem(45px);
         height: rem(45px);
+        pointer-events: none;
 
         @include tablets {
             width: rem(49px);
@@ -294,6 +295,7 @@
     }
 
     &__text {
+        pointer-events: none;
         font-family: "Gagalin";
         font-size: rem(14px);
         color: $white;
@@ -317,7 +319,18 @@
         }
     }
 
-    &:hover {
+    &__close-icon {
+        display: none;
+
+        @include tablets {
+            display: block;
+            position: absolute;
+            top: rem(10px);
+            right: rem(10px);
+        }
+    }
+
+    &:hover, &--active {
         background-color: $orange;
 
         .structure__table {

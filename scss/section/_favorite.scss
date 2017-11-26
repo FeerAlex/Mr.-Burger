@@ -26,8 +26,8 @@
 		margin-left: rem(10px);
 		text-align: center;
 		display: flex;
-		flex: 1;
 		flex-direction: column;
+		width: 33.3%;
 
 		&:first-child {
 			margin-left: 0;
@@ -38,6 +38,7 @@
 			text-align: left;
 			margin-bottom: rem(55px);
 			margin-left: 0;
+			width: 100%;
 		}
 	}
 
