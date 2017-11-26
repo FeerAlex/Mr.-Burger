@@ -80,7 +80,7 @@
 
 	    @for $i from 1 to 4 {
 		  &--#{$i} {
-		  	background-image: url('/img/menu/menu-#{$i}.jpg');
+		  	background-image: url('../img/menu/menu-#{$i}.jpg');
 		  }
 		}
 

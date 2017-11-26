@@ -391,7 +391,7 @@ let _yandexMap = (function()  {
 
 		let marks = new ymaps.GeoObjectCollection({}, {
 			iconLayout: 'default#image',
-			iconImageHref: '/img/map-marker.svg',
+			iconImageHref: '../img/map-marker.svg',
 			iconImageSize: [46, 57.727],
 			iconImageOffset: [-22, -57]
 		});
