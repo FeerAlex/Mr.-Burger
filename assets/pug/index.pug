@@ -11,10 +11,10 @@ html(lang="ru")
 
     link(rel="icon" type="image/x-icon" href="favicon.ico")
 
-    link(rel='stylesheet' href='css/normalize.css')
-    link(rel='stylesheet' href='css/main.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css')
+    link(rel='stylesheet' href='css/main.min.css')
 
-    script(src="js/vendor/svg4everybody.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js")
     script.
         svg4everybody();
 
@@ -37,8 +37,8 @@ html(lang="ru")
                         a(href="#section-" + (n + 1) data-section=`${n}`).points__link
                             - n++;
     
-    script(src="js/vendor/jquery.min.js")
+    script(src="http://code.jquery.com/jquery-3.2.1.min.js")
     script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU")
-    script(src="js/vendor/jquery.mousewheel.min.js")
-    script(src="js/vendor/jquery.touchSwipe.min.js")
-    script(src="js/script.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js")
+    script(src="js/script.min.js")
